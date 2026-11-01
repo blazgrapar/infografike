@@ -28,6 +28,11 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_DIR: ${{ secrets.FTP_DIR }}
         run: |
+          # varovalo: brez ciljne mape ali z mapo, ki ni podmapa, ne nalagaj ničesar
+          if [ -z "$FTP_DIR" ] || [ "$FTP_DIR" = "/" ] || [ "$FTP_DIR" = "." ] || [[ "$FTP_DIR" != */infografike* ]]; then
+            echo "::error::Skrivnost FTP_DIR mora biti mapa za infografike, npr. pikapoka.com/infografike. Nalaganje ustavljeno."
+            exit 1
+          fi
           lftp -c "set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 20; \
             open --env-password -u \"$FTP_USERNAME\" sftp://$FTP_SERVER; \
             mkdir -p -f \"$FTP_DIR\"; \
