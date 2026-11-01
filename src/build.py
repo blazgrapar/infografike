@@ -9,6 +9,7 @@ SITE = "Infografike"
 GROUPS = [
     ("narava", "Pojavi v naravi", "Luna, Sonce, letni časi, nočno nebo, mrki, plimovanje in vreme s številkami za Slovenijo."),
     ("prebivalstvo", "Prebivalstvo", "Koliko nas je na svetu in v Sloveniji, kako smo rasli in kaj sledi."),
+    ("drzave", "Države sveta", "Velikost, morje in obale, gore in gozdovi ter primerjava s Slovenijo."),
     ("cas", "Čas in koledar", "Kako merimo čas: koledar, ura in časovni pasovi, prazniki ter horoskop."),
 ]
 CHAPTERS = [
@@ -24,6 +25,10 @@ CHAPTERS = [
     ("slovenija", "Prebivalstvo Slovenije", "Popisi od leta 1857, rojstva in smrti ter staranje prebivalstva.", False, "prebivalstvo"),
     ("sto", "Slovenija v 100 ljudeh", "Koliko je otrok, starejših, tujcev in Marij, če nas je samo sto.", True, "prebivalstvo"),
     ("imena", "Imena in priimki", "Najpogostejša imena, imena novorojenčkov, modni valovi in priimki.", False, "prebivalstvo"),
+    ("velikost", "Velikost držav", "Največje in najmanjše države ter kolikokrat bi Slovenija šla v drugo državo.", True, "drzave"),
+    ("morje", "Morje in obale", "Paradoks obale, najdaljše obale, naših 46,6 km in države brez morja.", False, "drzave"),
+    ("gore", "Gore in gozdovi", "Povprečna nadmorska višina in delež gozda po državah.", False, "drzave"),
+    ("primerjaj", "Primerjaj s Slovenijo", "Izberi državo in jo primerjaj s Slovenijo.", True, "drzave"),
     ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True, "cas"),
     ("ura", "Ura in časovni pasovi", "Kdaj je zares poldne, časovni pasovi in poletni čas.", True, "cas"),
     ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True, "cas"),
@@ -44,6 +49,10 @@ LEDE = {
     "slovenija": "Slovencev je malo več kot dva milijona. Rodi se nas vse manj, živimo pa vse dlje.",
     "sto": "Celo Slovenijo pomanjšamo na sto ljudi in pogledamo, kdo smo.",
     "imena": "Marija, Franc in Novak še vladajo, novorojenčki pa so Ema in Mark.",
+    "velikost": "Slovenija je 150. država po velikosti. Kako velike so druge?",
+    "morje": "Zemlja je modri planet, obale pa so daljše, kot se zdijo.",
+    "gore": "Kako visoko ležijo države in koliko jih pokriva gozd. Slovenija je pri obojem nad povprečjem.",
+    "primerjaj": "Velikost, obala, višina in gozd izbrane države ob Sloveniji.",
     "horoskop": "Horoskop izvira iz opazovanja neba, a se z njim že dolgo ne ujema več.",
     "prazniki": "Koliko prostih dni nas čaka letos in v prihodnjih letih ter kje se splača vzeti dan dopusta.",
     "koledar": "Koledar je poskus, da bi dneve, mesece in leta spravili v red, čeprav se ne izidejo.",

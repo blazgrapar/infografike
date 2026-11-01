@@ -34,6 +34,10 @@ function icon(slug) {
       return bg + c;
     }
     case "imena": return bg + `<rect x="10" y="18" width="44" height="28" rx="5" fill="#E9ECF3"/><rect x="10" y="18" width="44" height="9" rx="4" fill="#E07A5F"/><rect x="10" y="23" width="44" height="4" fill="#E07A5F"/><text x="32" y="41" text-anchor="middle" font-family="Sora, sans-serif" font-size="11" font-weight="700" fill="#1C2436">Ime</text>`;
+    case "velikost": return bg + `<rect x="10" y="12" width="40" height="40" rx="2" fill="#2A9D8F" fill-opacity="0.5"/><rect x="10" y="40" width="12" height="12" rx="1" fill="#F2B33D"/>`;
+    case "morje": return bg + `<path d="M8,40 l6,-6 l4,4 l6,-9 l5,5 l4,-7 l6,8 l5,-4 l5,6 l7,-5" fill="none" stroke="#2A9D8F" stroke-width="2.5" stroke-linejoin="round"/><path d="M8,48 L56,48" stroke="#6FA8DC" stroke-width="2" stroke-dasharray="3 3"/>`;
+    case "gore": return bg + `<path d="M6,52 L22,26 L30,36 L40,18 L58,52 Z" fill="#A9B1C4"/><path d="M36,24 L40,18 L44,24 Z" fill="#E9ECF3"/><path d="M6,52 l5,-8 l5,8 M14,52 l5,-9 l5,9" fill="#2A9D8F"/>`;
+    case "primerjaj": return bg + `<rect x="14" y="20" width="36" height="8" rx="2" fill="#2A9D8F"/><rect x="14" y="31" width="22" height="8" rx="2" fill="#F2B33D"/><rect x="14" y="42" width="30" height="4" rx="2" fill="#A9B1C4"/>`;
     case "horoskop": {
       let c = `<circle cx="32" cy="32" r="21" fill="none" stroke="#A9B1C4" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="none" stroke="#2A9D8F" stroke-width="1.5"/>`;
       for (let k = 0; k < 12; k++) { const a = k * 30 * Math.PI / 180; c += `<line x1="${32 + 13 * Math.cos(a)}" y1="${32 + 13 * Math.sin(a)}" x2="${32 + 21 * Math.cos(a)}" y2="${32 + 21 * Math.sin(a)}" stroke="#A9B1C4"/>`; }
