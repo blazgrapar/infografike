@@ -7,18 +7,20 @@ ART = os.path.join(SRC, "..", "artifact")
 
 SITE = "Infografike"
 GROUPS = [
-    ("narava", "Pojavi v naravi", "Luna, Sonce, letni časi, mrki, plimovanje in vreme s številkami za Slovenijo."),
-    ("cas", "Čas in koledar", "Kako merimo čas: koledar, prazniki in prosti dnevi ter horoskop."),
+    ("narava", "Pojavi v naravi", "Luna, Sonce, letni časi, nočno nebo, mrki, plimovanje in vreme s številkami za Slovenijo."),
+    ("cas", "Čas in koledar", "Kako merimo čas: koledar, ura in časovni pasovi, prazniki ter horoskop."),
 ]
 CHAPTERS = [
     ("luna", "Luna", "Mene, vzhod in zahod ter smer, v kateri Luna vzide.", True, "narava"),
     ("sonce", "Sonce", "Pot Sonca po nebu in dolžina dneva skozi leto.", True, "narava"),
     ("letni-casi", "Letni časi", "Zakaj je poleti toplo in zakaj je najtopleje šele julija.", False, "narava"),
     ("somrak", "Somrak", "Civilni, navtični in astronomski somrak ter kdaj se zares stemni.", True, "narava"),
+    ("nocno-nebo", "Nočno nebo", "Planeti na izbrani večer, ozvezdja skozi leto in meteorski roji.", True, "narava"),
     ("mrki", "Mrki", "Kako nastaneta Sončev in Lunin mrk in zakaj nista vsak mesec.", True, "narava"),
     ("plima", "Plima in oseka", "Zakaj morje dvakrat na dan naraste in kdaj najbolj.", True, "narava"),
     ("vreme", "Vreme", "Temperatura zraka in morja ter padavine po Sloveniji.", True, "narava"),
     ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True, "cas"),
+    ("ura", "Ura in časovni pasovi", "Kdaj je zares poldne, časovni pasovi in poletni čas.", True, "cas"),
     ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True, "cas"),
     ("horoskop", "Horoskop", "Zakaj znamenja ne ustrezajo več ozvezdjem in kaj je Kačenosec.", True, "cas"),
 ]
@@ -31,6 +33,8 @@ LEDE = {
     "mrki": "Mrk nastane, ko se Sonce, Zemlja in Luna postavijo v ravno črto.",
     "plima": "Plimovanje poganjata Luna in Sonce. Na naši obali je morje ob plimi do enega metra višje kot ob oseki.",
     "vreme": "Kako se temperatura in padavine spreminjajo skozi leto, od Bovca do Murske Sobote.",
+    "nocno-nebo": "Kaj je nocoj na nebu: planeti, ozvezdja, Severnica in utrinki.",
+    "ura": "Ura na steni in Sonce na nebu se ujemata le približno. Tukaj je, zakaj.",
     "horoskop": "Horoskop izvira iz opazovanja neba, a se z njim že dolgo ne ujema več.",
     "prazniki": "Koliko prostih dni nas čaka letos in v prihodnjih letih ter kje se splača vzeti dan dopusta.",
     "koledar": "Koledar je poskus, da bi dneve, mesece in leta spravili v red, čeprav se ne izidejo.",

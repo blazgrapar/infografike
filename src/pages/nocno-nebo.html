@@ -1,0 +1,53 @@
+    <section class="stack">
+      <div class="section-num">5.1</div>
+      <h3>Planeti na izbrani večer</h3>
+      <p>S prostim očesom vidimo pet planetov: Merkur, Venero, Mars, Jupiter in Saturn. Od zvezd jih ločiš po tem, da ne migetajo in da se iz tedna v teden premikajo med ozvezdji. Kadar je planet na nebu blizu Sonca, ga zakrije sončna svetloba.</p>
+      <div class="controls">
+        <button id="nPrev" type="button" aria-label="Prejšnji dan">◀</button>
+        <input id="nDay" type="date" aria-label="Dan">
+        <button id="nNext" type="button" aria-label="Naslednji dan">▶</button>
+        <button id="nToday" type="button" class="wide">Danes</button>
+      </div>
+      <div class="night">
+        <span class="tlabel" id="nEveLbl">Zvečer</span>
+        <svg id="nSky" class="chart" viewBox="0 0 360 170" role="img" aria-label="Planeti nad obzorjem zvečer"></svg>
+      </div>
+      <div class="panel">
+        <div class="rowlist" id="nList"></div>
+      </div>
+      <p class="note">»Zvečer« pomeni eno uro po sončnem zahodu, »zjutraj« eno uro pred sončnim vzhodom. Izračun za Ljubljano.</p>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">5.2</div>
+      <h3>Ozvezdja skozi leto</h3>
+      <p>Ker Zemlja kroži okoli Sonca, vidimo ponoči vsak letni čas drug del neba. Ozvezdja, ki so pozimi visoko zvečer, so poleti na nebu podnevi in jih ne vidimo.</p>
+      <div class="cards" id="nSeasons"></div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">5.3</div>
+      <h3>Kako najdeš Severnico</h3>
+      <p>Severnica ni najsvetlejša zvezda, je pa edina, ki se skozi noč ne premika, ker leži skoraj točno nad Zemljino osjo. Pod njo je sever. Najdeš jo tako, da razdaljo med zadnjima zvezdama Velikega voza podaljšaš približno petkrat.</p>
+      <figure class="night" style="margin:0">
+        <svg id="nPolaris" viewBox="0 0 360 220" role="img" aria-label="Iskanje Severnice s pomočjo Velikega voza"></svg>
+      </figure>
+      <div class="tip">
+        <b>Višina Severnice je tvoja zemljepisna širina</b>
+        <span>V Sloveniji je Severnica okoli 46° nad obzorjem, približno na polovici med obzorjem in temenom.</span>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">5.4</div>
+      <h3>Meteorski roji</h3>
+      <p>Utrinki so drobci kometnega prahu, ki zgorijo v ozračju. Ko Zemlja vsako leto prečka isti prašni pas, se utrinki za nekaj noči opazno namnožijo. Največ jih vidiš po polnoči, ko je tvoja stran Zemlje obrnjena v smer gibanja.</p>
+      <div class="panel">
+        <div class="rowlist" id="nShowers"></div>
+      </div>
+      <p class="note">Število pove, koliko utrinkov na uro bi videl pod idealno temnim nebom. V praksi jih je nekajkrat manj. Svetla Luna jih skrije še več.</p>
+      <div class="tip">
+        <b>Za temno nebo</b>
+        <span>Najlepše je v gorah, daleč od mestnih luči, in ob mlaju. Očem daj vsaj 20 minut, da se privadijo na temo, in ne glej v telefon.</span>
+      </div>
+    </section>

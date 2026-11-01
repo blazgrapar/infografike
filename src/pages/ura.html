@@ -1,0 +1,41 @@
+    <section class="stack">
+      <div class="section-num">2.1</div>
+      <h3>Kdaj je zares poldne</h3>
+      <p>Sončno poldne je trenutek, ko je Sonce najvišje in točno na jugu. Na uri se to skoraj nikoli ne zgodi ob 12.00. Razlog sta dva: kraj ni točno na sredini časovnega pasu, Zemlja pa okoli Sonca ne kroži enakomerno, zato se sončno poldne skozi leto premika za pol ure.</p>
+      <div class="controls">
+        <button id="uPrev" type="button" aria-label="Prejšnji dan">◀</button>
+        <input id="uDay" type="date" aria-label="Dan">
+        <button id="uNext" type="button" aria-label="Naslednji dan">▶</button>
+        <button id="uToday" type="button" class="wide">Danes</button>
+      </div>
+      <div class="panel">
+        <div class="rowlist" id="uNoon"></div>
+      </div>
+      <div class="panel">
+        <h3>Sončno poldne v Ljubljani skozi leto</h3>
+        <svg id="uChart" class="chart" viewBox="0 0 360 210" role="img" aria-label="Ura sončnega poldneva v Ljubljani skozi leto"></svg>
+      </div>
+      <p class="note">Skoka marca in oktobra sta premik ure. Brez njega bi krivulja nihala med približno 11.46 in 12.17.</p>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.2</div>
+      <h3>Časovni pasovi</h3>
+      <p>Zemlja se v eni uri zavrti za 15°, zato je svet razdeljen na pasove, široke približno 15°. Slovenija uporablja srednjeevropski čas, ki je eno uro pred univerzalnim. Njegov poldnevnik, 15° vzhodne dolžine, poteka skozi Slovenijo med Ljubljano in Celjem, zato se pri nas ura s Soncem zelo dobro ujema.</p>
+      <p>Isti pas pa sega od Španije do Poljske. V istem trenutku, ko pri nas odbije poldne, je Sonce v Varšavi že čez vrh, v Galiciji pa še daleč od njega.</p>
+      <div class="panel">
+        <h3>Povprečno sončno poldne v zimskem času</h3>
+        <div class="rowlist" id="uTowns"></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.3</div>
+      <h3>Poletni čas</h3>
+      <p>Pri nas uro premikamo od osemdesetih let, po enotnem evropskem pravilu pa od leta 1996: zadnjo nedeljo v marcu naprej, zadnjo nedeljo v oktobru nazaj. Evropska komisija je ukinitev premikanja predlagala leta 2018, Evropski parlament jo je podprl leta 2019, države članice pa se doslej niso uskladile, kateri čas bi obdržale.</p>
+      <p>Kaj bi pomenila vsaka možnost, kaže tabela za Ljubljano.</p>
+      <div class="panel tablewrap">
+        <table class="seasons" id="uDst"></table>
+      </div>
+      <p class="note">»Zimski« in »Poletni« pomenita, da bi tak čas veljal vse leto. Stalni zimski čas bi junija pomenil sončni vzhod že ob 4.10, stalni poletni čas pa januarja vzhod šele ob 8.45.</p>
+    </section>

@@ -19,6 +19,12 @@ function icon(slug) {
       return bg + c;
     }
     case "soon": return bg + `<circle cx="32" cy="32" r="16" fill="none" stroke="#A9B1C4" stroke-width="2" stroke-dasharray="3 4"/><circle cx="24" cy="26" r="1.6" fill="#F2B33D"/><circle cx="36" cy="22" r="1.6" fill="#F2B33D"/><circle cx="40" cy="36" r="1.6" fill="#F2B33D"/><circle cx="28" cy="40" r="1.6" fill="#F2B33D"/><path d="M24,26 L36,22 L40,36 L28,40" fill="none" stroke="#F2B33D" stroke-opacity="0.6"/>`;
+    case "nocno-nebo": {
+      const st = [[14,18],[22,12],[30,20],[40,14],[48,22],[44,34],[34,30]];
+      let c = st.map(([x,y]) => `<circle cx="${x}" cy="${y}" r="1.8" fill="#E9ECF3"/>`).join("");
+      return bg + c + `<circle cx="22" cy="44" r="5" fill="#F2D7A0"/><ellipse cx="22" cy="44" rx="9" ry="2.4" fill="none" stroke="#E8D28A" stroke-width="1.2"/><line x1="40" y1="44" x2="54" y2="52" stroke="#F2B33D" stroke-width="1.5" stroke-linecap="round"/>`;
+    }
+    case "ura": return bg + `<circle cx="32" cy="32" r="18" fill="none" stroke="#E9ECF3" stroke-width="2"/><line x1="32" y1="32" x2="32" y2="19" stroke="#E9ECF3" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="32" x2="41" y2="36" stroke="#F2B33D" stroke-width="2.5" stroke-linecap="round"/><circle cx="32" cy="32" r="2" fill="#E9ECF3"/>`;
     case "horoskop": {
       let c = `<circle cx="32" cy="32" r="21" fill="none" stroke="#A9B1C4" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="none" stroke="#2A9D8F" stroke-width="1.5"/>`;
       for (let k = 0; k < 12; k++) { const a = k * 30 * Math.PI / 180; c += `<line x1="${32 + 13 * Math.cos(a)}" y1="${32 + 13 * Math.sin(a)}" x2="${32 + 21 * Math.cos(a)}" y2="${32 + 21 * Math.sin(a)}" stroke="#A9B1C4"/>`; }
