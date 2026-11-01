@@ -25,6 +25,9 @@ function icon(slug) {
       return bg + c + `<circle cx="22" cy="44" r="5" fill="#F2D7A0"/><ellipse cx="22" cy="44" rx="9" ry="2.4" fill="none" stroke="#E8D28A" stroke-width="1.2"/><line x1="40" y1="44" x2="54" y2="52" stroke="#F2B33D" stroke-width="1.5" stroke-linecap="round"/>`;
     }
     case "ura": return bg + `<circle cx="32" cy="32" r="18" fill="none" stroke="#E9ECF3" stroke-width="2"/><line x1="32" y1="32" x2="32" y2="19" stroke="#E9ECF3" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="32" x2="41" y2="36" stroke="#F2B33D" stroke-width="2.5" stroke-linecap="round"/><circle cx="32" cy="32" r="2" fill="#E9ECF3"/>`;
+    case "svet": return bg + `<circle cx="32" cy="32" r="18" fill="#3D7DC4"/><path d="M20,24 q6,-4 10,2 t8,6 q-4,6 -10,4 z M36,40 q4,-4 8,0 q-2,6 -8,4 z" fill="#2A9D8F"/>` +
+      [[18, 52], [26, 54], [34, 52], [42, 54], [50, 52]].map(([x, y]) => `<circle cx="${x}" cy="${y - 4}" r="2" fill="#E9ECF3"/><rect x="${x - 2}" y="${y - 1.5}" width="4" height="5" rx="1.5" fill="#E9ECF3"/>`).join("");
+    case "slovenija": return bg + [8, 12, 15, 17, 22, 28, 34, 38, 40].map((h, k) => `<rect x="${12 + k * 4.6}" y="${50 - h}" width="3.2" height="${h}" rx="1" fill="${k === 8 ? "#F2B33D" : "#2A9D8F"}"/>`).join("");
     case "horoskop": {
       let c = `<circle cx="32" cy="32" r="21" fill="none" stroke="#A9B1C4" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="none" stroke="#2A9D8F" stroke-width="1.5"/>`;
       for (let k = 0; k < 12; k++) { const a = k * 30 * Math.PI / 180; c += `<line x1="${32 + 13 * Math.cos(a)}" y1="${32 + 13 * Math.sin(a)}" x2="${32 + 21 * Math.cos(a)}" y2="${32 + 21 * Math.sin(a)}" stroke="#A9B1C4"/>`; }

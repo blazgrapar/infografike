@@ -8,6 +8,7 @@ ART = os.path.join(SRC, "..", "artifact")
 SITE = "Infografike"
 GROUPS = [
     ("narava", "Pojavi v naravi", "Luna, Sonce, letni časi, nočno nebo, mrki, plimovanje in vreme s številkami za Slovenijo."),
+    ("prebivalstvo", "Prebivalstvo", "Koliko nas je na svetu in v Sloveniji, kako smo rasli in kaj sledi."),
     ("cas", "Čas in koledar", "Kako merimo čas: koledar, ura in časovni pasovi, prazniki ter horoskop."),
 ]
 CHAPTERS = [
@@ -19,6 +20,8 @@ CHAPTERS = [
     ("mrki", "Mrki", "Kako nastaneta Sončev in Lunin mrk in zakaj nista vsak mesec.", True, "narava"),
     ("plima", "Plima in oseka", "Zakaj morje dvakrat na dan naraste in kdaj najbolj.", True, "narava"),
     ("vreme", "Vreme", "Temperatura zraka in morja ter padavine po Sloveniji.", True, "narava"),
+    ("svet", "Prebivalstvo sveta", "Od četrt milijarde v rimskih časih do osmih milijard danes in vrha okoli leta 2084.", True, "prebivalstvo"),
+    ("slovenija", "Prebivalstvo Slovenije", "Popisi od leta 1857, rojstva in smrti ter staranje prebivalstva.", False, "prebivalstvo"),
     ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True, "cas"),
     ("ura", "Ura in časovni pasovi", "Kdaj je zares poldne, časovni pasovi in poletni čas.", True, "cas"),
     ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True, "cas"),
@@ -35,6 +38,8 @@ LEDE = {
     "vreme": "Kako se temperatura in padavine spreminjajo skozi leto, od Bovca do Murske Sobote.",
     "nocno-nebo": "Kaj je nocoj na nebu: planeti, ozvezdja, Severnica in utrinki.",
     "ura": "Ura na steni in Sonce na nebu se ujemata le približno. Tukaj je, zakaj.",
+    "svet": "V dveh stoletjih nas je postalo osemkrat več. Rast se zdaj umirja.",
+    "slovenija": "Slovencev je malo več kot dva milijona. Rodi se nas vse manj, živimo pa vse dlje.",
     "horoskop": "Horoskop izvira iz opazovanja neba, a se z njim že dolgo ne ujema več.",
     "prazniki": "Koliko prostih dni nas čaka letos in v prihodnjih letih ter kje se splača vzeti dan dopusta.",
     "koledar": "Koledar je poskus, da bi dneve, mesece in leta spravili v red, čeprav se ne izidejo.",
