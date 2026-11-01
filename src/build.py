@@ -131,7 +131,8 @@ def index_page(full):
                       f'<span class="ct"><span class="n">V pripravi</span><h2>{name}</h2><p>{desc}</p></span></div>\n')
         groups += (f'<section class="group" id="{gid}"><div class="grouphead"><h2>{gname}</h2><p class="muted">{gdesc}</p></div>'
                    f'<nav class="cards" aria-label="{gname}">\n{cards}</nav></section>\n')
-    body = body.replace("%%CARDS%%", groups)
+    toc = "".join(f'<a href="#{g[0]}">{g[1]}</a>' for g in GROUPS)
+    body = body.replace("%%CARDS%%", groups).replace("%%TOC%%", toc)
     html += body + f'\n<script src="astro.js?v={VER}"></script>\n<script src="common.js?v={VER}"></script>\n<script src="index.js?v={VER}"></script>\n'
     if full:
         html += "</body>\n</html>\n"
