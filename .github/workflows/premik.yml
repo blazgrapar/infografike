@@ -1,0 +1,21 @@
+name: Enkratno - premakni git.token iz spletne mape
+
+on:
+  workflow_dispatch:
+
+jobs:
+  premik:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Namesti lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+      - name: Premakni datoteko izven spletne mape
+        env:
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        run: |
+          lftp -c "set sftp:auto-confirm yes; set net:max-retries 4; set net:timeout 20; \
+            open --env-password -u \"$FTP_USERNAME\" sftp://$FTP_SERVER; \
+            mv pikapoka.com/www/git.token git.token.premaknjen; \
+            echo '--- www'; ls -l pikapoka.com/www/; echo '--- domov'; ls -l git.token.premaknjen"
