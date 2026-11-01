@@ -78,3 +78,46 @@ chips();
 drawTemp();
 drawSea();
 drawRain();
+
+// ---------- Padavine skozi leta ----------
+const YR = {"Y0": 1961, "Kredarica": [2345, 2114, 2800, 2015, 2862, 2247, 2140, 2301, 2180, 1973, 1436, 1972, 2413, 2030, 2318, 1974, 1971, 2429, 2566, 2011, 1523, 2228, 1574, 2353, 1795, 1992, 2682, 2162, 1821, 2439, 2058, 2066, 1802, 1769, 1680, 1951, 1800, 2157, 2376, 2573, 2230, 2093, 1623, 2241, 1752, 1887, 1761, 2180, 2259, 2343, 1497, 2204, 2176, 2449, 1755, 2290, 2230, 1740, 2440, 2376, 1939, 1719], "Rateče": [1532, 1768, 1870, 1553, 2374, 1744, 1570, 1717, 1872, 1744, 1319, 1753, 1730, 1408, 1701, 1534, 1549, 1799, 1961, 1697, 1359, 1588, 1243, 1662, 1698, 1323, 1837, 1323, 1464, 1724, 1599, 1646, 1606, 1473, 1253, 1773, 1328, 1556, 1579, 1891, 1440, 1458, 1652, 1638, 1239, 1175, 1310, 1910, 1782, 1703, 1293, 1700, 1598, 2084, 1233, 1666, 1966, 1504, 1869, 1839, 1501, 1158], "Murska Sobota": [786, 931, 832, 876, 1067, 970, 784, 612, 787, 761, 563, 1033, 809, 912, 805, 751, 718, 676, 912, 862, 768, 864, 634, 741, 883, 788, 982, 722, 776, 900, 804, 689, 687, 989, 924, 1026, 692, 839, 772, 651, 643, 754, 515, 804, 869, 852, 817, 708, 989, 876, 693, 782, 912, 1093, 690, 787, 930, 825, 896, 849, 825, 704], "Novo mesto": [1025, 1261, 1229, 1371, 1370, 1141, 1040, 900, 1204, 1184, 872, 1416, 855, 1275, 1047, 1060, 1132, 967, 1276, 1274, 1224, 1205, 964, 1322, 1283, 1121, 1143, 1031, 1135, 1102, 1054, 1168, 1098, 1120, 1299, 1152, 991, 1041, 1299, 827, 1053, 1379, 886, 1196, 1382, 1084, 1114, 1134, 1066, 1278, 834, 1147, 1259, 1482, 1084, 1146, 1120, 1165, 1214, 1049, 1022, 1142]};
+const YST = ["Kredarica", "Rateče", "Novo mesto", "Murska Sobota"];
+let ySel = 0;
+function drawYears() {
+  const name = YST[ySel], v = YR[name], n = v.length, y0 = YR.Y0;
+  const mx = Math.ceil(Math.max(...v) / 500) * 500;
+  const X0 = 40, X1 = 352, Y0 = 12, Y1 = 196, bw = (X1 - X0) / n;
+  const cy = p => Y1 - p / mx * (Y1 - Y0);
+  let g = "";
+  for (let t = 0; t <= mx; t += mx > 2000 ? 500 : 250) {
+    g += `<line x1="${X0}" x2="${X1}" y1="${cy(t)}" y2="${cy(t)}" stroke="var(--line)"/>` +
+      `<text x="${X0 - 5}" y="${cy(t) + 3.5}" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">${t}</text>`;
+  }
+  const hi = v.indexOf(Math.max(...v)), lo = v.indexOf(Math.min(...v));
+  v.forEach((p, i) => {
+    const op = i === hi || i === lo ? 1 : 0.5;
+    g += `<rect x="${X0 + i * bw + 0.6}" y="${cy(p)}" width="${bw - 1.2}" height="${Y1 - cy(p)}" fill="var(--rain)" fill-opacity="${op}"/>`;
+  });
+  const ma = [];
+  for (let i = 9; i < n; i++) { const s = v.slice(i - 9, i + 1).reduce((a, b) => a + b, 0) / 10; ma.push([X0 + (i - 4) * bw, cy(s)]); }
+  g += `<path d="${ptsToD(ma)}" fill="none" stroke="var(--ink)" stroke-width="2.5"/>`;
+  [1970, 1980, 1990, 2000, 2010, 2020].forEach(y => {
+    const x = X0 + (y - y0 + 0.5) * bw;
+    g += `<text x="${x}" y="${Y1 + 16}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">${y}</text>`;
+  });
+  g += `<text x="${X0}" y="${Y1 + 30}" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">mm na leto</text>`;
+  $("yChart").innerHTML = g;
+  const mean = v.reduce((a, b) => a + b, 0) / n;
+  $("yFacts").innerHTML =
+    `<div><span class="k">Povprečje ${y0}–${y0 + n - 1}</span><span class="v">${Math.round(mean).toLocaleString("sl-SI")} mm</span></div>` +
+    `<div><span class="k">Najbolj mokro leto</span><span class="v">${y0 + hi} · ${v[hi].toLocaleString("sl-SI")} mm</span></div>` +
+    `<div><span class="k">Najbolj suho leto</span><span class="v">${y0 + lo} · ${v[lo].toLocaleString("sl-SI")} mm</span></div>`;
+}
+function yChips() {
+  $("yChips").innerHTML = YST.map((s, k) => `<button type="button" id="ychip${k}" aria-pressed="${k === ySel}" style="--c:var(--rain)">${s}</button>`).join("");
+  YST.forEach((s, k) => $("ychip" + k).addEventListener("click", () => {
+    ySel = k; YST.forEach((_, j) => $("ychip" + j).setAttribute("aria-pressed", j === k)); drawYears();
+  }));
+}
+yChips();
+drawYears();
