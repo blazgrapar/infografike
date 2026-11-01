@@ -213,3 +213,12 @@ a { color: inherit; }
 .grouphead { display: grid; gap: 4px; padding-top: 14px; border-top: 2px solid var(--ink); }
 .grouphead h2 { font-size: 1.5rem; }
 .card.soon { opacity: 0.6; }
+
+.todaygrid { display: grid; gap: 10px; }
+.tile { display: grid; gap: 6px; text-decoration: none; color: var(--night-ink); padding: 16px; }
+.tile:hover { outline: 2px solid var(--sun); outline-offset: 0; }
+.tilerow { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 14px; align-items: center; }
+.tilerow svg { width: 64px; height: 64px; }
+.tile .tval { font-size: 1.6rem; }
+.toc a { background: var(--surface); color: var(--ink); border-color: var(--line); }
+.group { scroll-margin-top: 12px; }

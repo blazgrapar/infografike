@@ -50,14 +50,37 @@ function icon(slug) {
 document.querySelectorAll("svg[data-icon]").forEach(s => { s.innerHTML = icon(s.dataset.icon); });
 
 // danes
-const [y, mo, d] = todayLocal(), st = localMidnight(y, mo, d);
-const el = moonAt(Date.now()).elong, sE = events(sunAt, st), mE = events(moonAt, st);
+const now = Date.now(), [y, mo, d] = todayLocal(), st = localMidnight(y, mo, d);
+const el = moonAt(now).elong, sE = events(sunAt, st);
 $("iDate").textContent = fmtDayLong.format(new Date());
 $("iMoon").innerHTML = moonSVG(100, el);
 $("iPhase").textContent = phaseName(el);
-$("iPhaseSub").textContent = `osvetljena ${Math.round(illum(el) * 100)} %`;
-$("iSun").textContent = `${hm(sE.rise.t)}–${hm(sE.set.t)}`;
-$("iSunD").textContent = `dan traja ${durTxt((sE.set.t - sE.rise.t) / 60000)}`;
-const mr = mE.rise ? `vzide ${hm(mE.rise.t)}` : "", ms = mE.set ? `zaide ${hm(mE.set.t)}` : "";
-$("iMoonT").textContent = mE.rise ? hm(mE.rise.t) : "—";
-$("iMoonD").textContent = (mE.rise ? "vzide" : "ta dan ne vzide") + (ms ? " · " + ms : "");
+$("iSun").textContent = `osvetljena ${Math.round(illum(el) * 100)} % · Sonce ${hm(sE.rise.t)}–${hm(sE.set.t)}`;
+
+const W0 = Date.UTC(2024, 6, 1), P0 = 8.161e9, RATE = 69.5e6 / (365.25 * 86400000);
+const tickPop = () => { $("iPop").textContent = Math.round(P0 + (Date.now() - W0) * RATE).toLocaleString("sl-SI"); };
+tickPop(); setInterval(tickPop, 250);
+
+// koledar: dan v letu, teden, naslednji dela prost dan
+function easterG(Y) {
+  const a = Y % 19, b = Math.floor(Y / 100), c = Y % 100, dd = Math.floor(b / 4), e = b % 4;
+  const f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - dd - g + 15) % 30;
+  const i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+  return Date.UTC(Y, Math.floor((h + l - 7 * m + 114) / 31) - 1, ((h + l - 7 * m + 114) % 31) + 1);
+}
+function freeDays(Y) {
+  const E = easterG(Y), DAY = 86400000;
+  return [[Date.UTC(Y, 0, 1), "novo leto"], [Date.UTC(Y, 0, 2), "novo leto"], [Date.UTC(Y, 1, 8), "Prešernov dan"],
+    [E + DAY, "velikonočni ponedeljek"], [Date.UTC(Y, 3, 27), "dan upora proti okupatorju"], [Date.UTC(Y, 4, 1), "praznik dela"],
+    [Date.UTC(Y, 4, 2), "praznik dela"], [Date.UTC(Y, 5, 25), "dan državnosti"], [Date.UTC(Y, 7, 15), "Marijino vnebovzetje"],
+    [Date.UTC(Y, 9, 31), "dan reformacije"], [Date.UTC(Y, 10, 1), "dan spomina na mrtve"], [Date.UTC(Y, 11, 25), "božič"],
+    [Date.UTC(Y, 11, 26), "dan samostojnosti in enotnosti"]];
+}
+const today = Date.UTC(y, mo - 1, d), doyN = doy(mo, d, y) + 1;
+const tmp = new Date(today); tmp.setUTCDate(tmp.getUTCDate() - ((tmp.getUTCDay() + 6) % 7) + 3);
+const thu1 = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 4));
+const week = 1 + Math.round(((tmp - thu1) / 86400000 - 3 + ((thu1.getUTCDay() + 6) % 7)) / 7);
+$("iDoy").textContent = `${doyN}. dan v letu · ${week}. teden`;
+const nxt = freeDays(y).concat(freeDays(y + 1)).find(([t]) => t > today);
+const days = Math.round((nxt[0] - today) / 86400000);
+$("iHol").textContent = `Naslednji dela prost dan: ${fmtDate.format(new Date(nxt[0]))}, ${nxt[1]}, čez ${days} ${days === 1 ? "dan" : days === 2 ? "dneva" : days < 5 ? "dnevi" : "dni"}`;

@@ -1,5 +1,5 @@
 """Sestavi knjižico: site/ (za spletno stran) in artifact/ (index brez ogrodja)."""
-import os, shutil, json
+import os, shutil, json, hashlib, time
 
 SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(SRC, "..", "site")
@@ -55,6 +55,9 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">')
 
 
+VER = hashlib.sha1(str(time.time()).encode()).hexdigest()[:8]
+
+
 def read(p):
     return open(os.path.join(SRC, p), encoding="utf-8").read()
 
@@ -64,7 +67,7 @@ def head(title, full):
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n') if full else ""
     return (meta + f"<title>{title}</title>\n"
             '<meta name="claude:viewport-fit-sides" content="cover">\n'
-            f"{FONTS}\n<link rel=\"stylesheet\" href=\"style.css\">\n" + ("</head>\n<body>\n" if full else ""))
+            f"{FONTS}\n<link rel=\"stylesheet\" href=\"style.css?v={VER}\">\n" + ("</head>\n<body>\n" if full else ""))
 
 
 def chapter_page(i):
@@ -94,9 +97,9 @@ def chapter_page(i):
   </article>
   {pager}
 </div>
-<script src="astro.js"></script>
-<script src="common.js"></script>
-<script src="{slug}.js"></script>
+<script src="astro.js?v={VER}"></script>
+<script src="common.js?v={VER}"></script>
+<script src="{slug}.js?v={VER}"></script>
 </body>
 </html>
 '''
@@ -120,7 +123,7 @@ def index_page(full):
         groups += (f'<section class="group" id="{gid}"><div class="grouphead"><h2>{gname}</h2><p class="muted">{gdesc}</p></div>'
                    f'<nav class="cards" aria-label="{gname}">\n{cards}</nav></section>\n')
     body = body.replace("%%CARDS%%", groups)
-    html += body + '\n<script src="astro.js"></script>\n<script src="common.js"></script>\n<script src="index.js"></script>\n'
+    html += body + f'\n<script src="astro.js?v={VER}"></script>\n<script src="common.js?v={VER}"></script>\n<script src="index.js?v={VER}"></script>\n'
     if full:
         html += "</body>\n</html>\n"
     return html

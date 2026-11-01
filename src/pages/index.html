@@ -2,28 +2,44 @@
   <header class="hero">
     <div class="eyebrow">Zbirka knjižic v slikah</div>
     <h1>Infografike</h1>
-    <p class="muted">Pojavi v naravi ter čas in koledar, razloženi s slikami in številkami za Slovenijo. Mnoga poglavja pokažejo tudi, kako je danes.</p>
+    <p class="muted">Pojavi v naravi, prebivalstvo ter čas in koledar, razloženi s slikami in številkami za Slovenijo. Mnoga poglavja pokažejo tudi, kako je danes.</p>
+    <nav class="toc" aria-label="Sklopi">
+      <a href="#narava">Pojavi v naravi</a>
+      <a href="#prebivalstvo">Prebivalstvo</a>
+      <a href="#cas">Čas in koledar</a>
+    </nav>
   </header>
 
-  <section class="night" aria-label="Danes nad Ljubljano">
+  <section class="stack" aria-label="Danes">
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap">
-      <span class="tlabel">Danes nad Ljubljano</span>
-      <span class="phase-sub" id="iDate"></span>
+      <h2 style="font-size:1.3rem">Danes</h2>
+      <span class="muted" id="iDate"></span>
     </div>
-    <div class="today-card">
-      <svg id="iMoon" viewBox="-104 -104 208 208" role="img" aria-label="Današnja oblika Lune"></svg>
-      <div>
-        <div class="phase-name" id="iPhase">–</div>
-        <div class="phase-sub" id="iPhaseSub">–</div>
-      </div>
-    </div>
-    <div class="times">
-      <div class="trow"><span class="tlabel">Sonce</span><span class="tval" id="iSun">–</span><span class="tdir" id="iSunD"></span></div>
-      <div class="trow"><span class="tlabel">Luna</span><span class="tval" id="iMoonT">–</span><span class="tdir" id="iMoonD"></span></div>
+    <div class="todaygrid">
+      <a class="tile night" href="luna.html">
+        <span class="tlabel">Nebo nad Ljubljano</span>
+        <div class="tilerow">
+          <svg id="iMoon" viewBox="-104 -104 208 208" role="img" aria-label="Današnja oblika Lune"></svg>
+          <div>
+            <div class="phase-name" id="iPhase">–</div>
+            <div class="phase-sub" id="iSun">–</div>
+          </div>
+        </div>
+      </a>
+      <a class="tile night" href="svet.html">
+        <span class="tlabel">Ljudi na svetu</span>
+        <div class="tval" id="iPop">–</div>
+        <span class="phase-sub">ocena v tem trenutku</span>
+      </a>
+      <a class="tile night" href="prazniki.html">
+        <span class="tlabel">Koledar</span>
+        <div class="phase-name" id="iDoy">–</div>
+        <span class="phase-sub" id="iHol">–</span>
+      </a>
     </div>
   </section>
 
 %%CARDS%%
 
-  <p class="note">Izračuni veljajo za Ljubljano, drugod po Sloveniji se časi razlikujejo za nekaj minut. Podnebni podatki so povzeti po ARSO.</p>
+  <p class="note">Izračuni veljajo za Ljubljano, drugod po Sloveniji se časi razlikujejo za nekaj minut. Viri podatkov so navedeni v posameznih poglavjih.</p>
 </div>
