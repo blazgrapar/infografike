@@ -1,0 +1,58 @@
+    <section class="stack">
+      <div class="section-num">9.1</div>
+      <h3>Dela prosti dnevi v letu</h3>
+      <p>V Sloveniji je 13 dela prostih dni, ki lahko padejo na delavnik, poleg tega pa še velikonočna in binkoštna nedelja. Če praznik pade na soboto ali nedeljo, se prosti dan ne prenese na ponedeljek. Zato je število dejansko prostih dni vsako leto drugačno.</p>
+      <div class="controls" style="grid-template-columns: auto minmax(0,1fr) auto">
+        <button id="hPrev" type="button" aria-label="Prejšnje leto">◀</button>
+        <div class="big-answer" id="hYear" style="text-align:center;align-self:center">–</div>
+        <button id="hNext" type="button" aria-label="Naslednje leto">▶</button>
+      </div>
+      <div class="stats" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+        <div class="stat"><div class="big" id="hWork">–</div><div class="lbl">dela prostih dni med tednom</div></div>
+        <div class="stat"><div class="big" id="hBridge">–</div><div class="lbl">dni dopusta za podaljšane vikende</div></div>
+      </div>
+      <div class="panel">
+        <div class="rowlist" id="hList"></div>
+      </div>
+      <p class="note">Mostovi so delovni dnevi med praznikom in vikendom. Z enim dnem dopusta tam dobiš štiri proste dni zapored.</p>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">9.2</div>
+      <h3>Kako bo v prihodnjih letih</h3>
+      <p>Koliko praznikov pade na delavnik, je odvisno od tega, na kateri dan v tednu se leto začne, in od datuma velike noči. <span id="hRange"></span> Tapni stolpec, da vidiš podrobnosti za tisto leto.</p>
+      <div class="panel">
+        <svg id="hChart" class="chart" viewBox="0 0 360 210" role="img" aria-label="Število dela prostih dni med tednom po letih"></svg>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">9.3</div>
+      <h3>Prazniki, ki niso dela prosti</h3>
+      <p>Nekateri državni prazniki so le spominski dnevi in na njih se dela.</p>
+      <div class="panel">
+        <div class="rowlist">
+          <div><span class="k">Dan Primoža Trubarja</span><span class="v">8. junij</span></div>
+          <div><span class="k">Dan Triglava</span><span class="v">7. avgust</span><span class="d">Nov praznik od oktobra 2026.</span></div>
+          <div><span class="k">Združitev prekmurskih Slovencev z matičnim narodom</span><span class="v">17. avgust</span></div>
+          <div><span class="k">Vrnitev Primorske k matični domovini</span><span class="v">15. september</span></div>
+          <div><span class="k">Dan slovenskega športa</span><span class="v">23. september</span></div>
+          <div><span class="k">Dan suverenosti</span><span class="v">25. oktober</span></div>
+          <div><span class="k">Dan znanosti</span><span class="v">10. november</span></div>
+          <div><span class="k">Dan Rudolfa Maistra</span><span class="v">23. november</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">9.4</div>
+      <h3>Premik ure</h3>
+      <p>Na poletni čas preidemo zadnjo nedeljo v marcu, ko uro ob 2.00 premaknemo na 3.00. Nazaj na zimski čas gremo zadnjo nedeljo v oktobru, ko uro ob 3.00 vrnemo na 2.00.</p>
+      <div class="panel">
+        <div class="rowlist" id="hDst"></div>
+      </div>
+    </section>
+
+    <div class="sources">
+      <span>Vir: Zakon o praznikih in dela prostih dnevih v Republiki Sloveniji, s spremembami do oktobra 2026. Prihodnja leta so izračunana po trenutnem zakonu.</span>
+    </div>

@@ -15,6 +15,7 @@ CHAPTERS = [
     ("plima", "Plima in oseka", "Zakaj morje dvakrat na dan naraste in kdaj najbolj.", True),
     ("vreme", "Vreme", "Temperatura zraka in morja ter padavine po Sloveniji.", False),
     ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True),
+    ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True),
 ]
 LEDE = {
     "luna": "Kako se Luna spreminja skozi mesec, kdaj vzide in kje jo iskati na nebu.",
@@ -24,6 +25,7 @@ LEDE = {
     "mrki": "Mrk nastane, ko se Sonce, Zemlja in Luna postavijo v ravno črto.",
     "plima": "Plimovanje poganjata Luna in Sonce. Na naši obali je morje ob plimi do enega metra višje kot ob oseki.",
     "vreme": "Kako se temperatura in padavine spreminjajo skozi leto, od Bovca do Murske Sobote.",
+    "prazniki": "Koliko prostih dni nas čaka letos in v prihodnjih letih ter kje se splača vzeti dan dopusta.",
     "koledar": "Koledar je poskus, da bi dneve, mesece in leta spravili v red, čeprav se ne izidejo.",
 }
 

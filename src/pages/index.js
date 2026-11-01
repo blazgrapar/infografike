@@ -18,6 +18,11 @@ function icon(slug) {
       for (let r = 0; r < 3; r++) for (let k = 0; k < 4; k++) c += `<rect x="${16 + k * 9}" y="${28 + r * 7.5}" width="6" height="5" rx="1" fill="${r === 2 && k === 1 ? sun : "#A9B1C4"}"/>`;
       return bg + c;
     }
+    case "prazniki": {
+      let c = `<rect x="12" y="14" width="40" height="38" rx="5" fill="#E9ECF3"/><rect x="12" y="14" width="40" height="10" rx="5" fill="#2A9D8F"/><rect x="12" y="20" width="40" height="4" fill="#2A9D8F"/>`;
+      for (let r = 0; r < 3; r++) for (let k = 0; k < 5; k++) c += `<rect x="${15 + k * 7.4}" y="${28 + r * 7.5}" width="5" height="5" rx="1" fill="${k >= 3 ? "#E07A5F" : (r === 1 && k === 1 ? "#F2B33D" : "#A9B1C4")}"/>`;
+      return bg + c;
+    }
   }
   return bg;
 }
