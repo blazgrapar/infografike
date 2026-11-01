@@ -7,4 +7,4 @@ Knjižica z infografikami o naravnih pojavih, objavljena na pikapoka.com/infogra
 - `.github/workflows/objavi.yml` – ob vsaki spremembi na veji `main` sestavi strani in jih naloži prek SFTP
 
 Potrebne skrivnosti (Settings → Secrets and variables → Actions):
-`FTP_SERVER` (strežnik), `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_DIR` (npr. `pikapoka.com/infografike`).
+`FTP_SERVER` (strežnik), `FTP_USERNAME`, `FTP_PASSWORD`. Ciljna mapa `pikapoka.com/infografike` je nastavljena v `objavi.yml`.

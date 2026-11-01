@@ -26,7 +26,7 @@ jobs:
           LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_DIR: ${{ secrets.FTP_DIR }}
+          FTP_DIR: pikapoka.com/infografike
         run: |
           # varovalo: brez ciljne mape ali z mapo, ki ni podmapa, ne nalagaj ničesar
           if [ -z "$FTP_DIR" ] || [ "$FTP_DIR" = "/" ] || [ "$FTP_DIR" = "." ] || [[ "$FTP_DIR" != */infografike* ]]; then
