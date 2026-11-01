@@ -1,0 +1,54 @@
+    <section class="stack">
+      <div class="section-num">3.1</div>
+      <h3>Od kod znamenja</h3>
+      <p>Z Zemlje se zdi, da Sonce v enem letu obkroži nebo po krožnici, ki ji pravimo ekliptika. Pas zvezd ob njej so že stari Babilonci razdelili na 12 delov in vsakega poimenovali po ozvezdju, ki je tam ležalo. Grki so pas imenovali zodiak, kar pomeni »krog živali«.</p>
+      <p>Astrološka znamenja so dvanajst enako dolgih odsekov po 30°. Prvi, Oven, se začne ob pomladnem enakonočju. Ozvezdja pa so različno velika in ležijo drugje kot pred dva tisoč leti.</p>
+      <figure class="night" style="margin:0">
+        <svg id="zWheel" viewBox="-180 -180 360 360" role="img" aria-label="Astrološka znamenja in prava ozvezdja skozi leto"></svg>
+        <figcaption class="cap">Zunanji krog: znamenja po horoskopu. Notranji krog: ozvezdje, v katerem je Sonce v resnici. Rumena črta je današnji dan.</figcaption>
+      </figure>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">3.2</div>
+      <h3>Tvoje znamenje in tvoje ozvezdje</h3>
+      <div class="panel">
+        <label class="slider" for="zDate"><span>Rojstni dan</span></label>
+        <input id="zDate" type="date" aria-label="Rojstni dan" style="font-family:var(--font-data);font-size:1rem;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);width:100%">
+        <div class="rowlist">
+          <div><span class="k">Po horoskopu</span><span class="v" id="zSign">–</span></div>
+          <div><span class="k">Sonce je bilo v ozvezdju</span><span class="v" id="zCon">–</span></div>
+        </div>
+        <p class="muted" id="zMsg"></p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="big" id="zMatch">–</div><div class="lbl">dni v letu se znamenje ujema z ozvezdjem</div></div>
+        <div class="stat"><div class="big">7</div><div class="lbl">dni je Sonce v Škorpijonu</div></div>
+        <div class="stat"><div class="big">45</div><div class="lbl">dni je Sonce v Devici</div></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">3.3</div>
+      <h3>Zakaj se je zamaknilo</h3>
+      <p>Zemljina os se počasi opoteka kot vrtavka, ki se ustavlja. En obrat traja približno 25.800 let. Zato se pomladno enakonočje glede na zvezde premakne za eno stopinjo vsakih 72 let.</p>
+      <p>Ko so pred približno dva tisoč leti določili znamenja, je bilo Sonce ob začetku pomladi v Ovnu. Danes je takrat v Ribah, čez nekaj stoletij bo v Vodnarju. Od tod »doba Vodnarja«.</p>
+      <figure class="night" style="margin:0">
+        <svg id="zPrec" viewBox="0 0 360 220" role="img" aria-label="Opotekanje Zemljine osi"></svg>
+      </figure>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">3.4</div>
+      <h3>Zanimivosti</h3>
+      <div class="panel">
+        <div class="rowlist">
+          <div><span class="k">Trinajsto ozvezdje</span><span class="d">Sonce od konca novembra do sredine decembra prečka Kačenosca. Tam je dlje kot v Škorpijonu, a horoskop Kačenosca ne pozna.</span></div>
+          <div><span class="k">Dva zodiaka</span><span class="d">Zahodna astrologija veže znamenja na letne čase, zato se z zvezdami ne ujemajo več. Indijska astrologija jih veže na zvezde, zato so njena znamenja zamaknjena za skoraj mesec dni.</span></div>
+          <div><span class="k">Beseda horoskop</span><span class="d">Izvira iz grških besed za uro in opazovanje. Prvotno je pomenila, katero ozvezdje je vzhajalo ob uri rojstva.</span></div>
+          <div><span class="k">Planeti v zodiaku</span><span class="d">Luna in planeti se po nebu gibljejo blizu ekliptike, zato jih vedno najdemo v ozvezdjih zodiaka.</span></div>
+          <div><span class="k">Ali horoskop deluje?</span><span class="d">Znanstveni preizkusi niso našli povezave med znamenjem in značajem. Najbolj znan je preizkus fizika Shawna Carlsona iz leta 1985, objavljen v reviji Nature.</span></div>
+        </div>
+      </div>
+      <p class="note">Datumi prehodov Sonca med ozvezdji veljajo za današnji čas in se lahko razlikujejo za dan.</p>
+    </section>

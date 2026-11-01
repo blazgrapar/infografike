@@ -8,7 +8,7 @@ ART = os.path.join(SRC, "..", "artifact")
 SITE = "Infografike"
 GROUPS = [
     ("narava", "Pojavi v naravi", "Luna, Sonce, letni časi, mrki, plimovanje in vreme s številkami za Slovenijo."),
-    ("cas", "Čas in koledar", "Kako merimo čas: koledar, prazniki in prosti dnevi."),
+    ("cas", "Čas in koledar", "Kako merimo čas: koledar, prazniki in prosti dnevi ter horoskop."),
 ]
 CHAPTERS = [
     ("luna", "Luna", "Mene, vzhod in zahod ter smer, v kateri Luna vzide.", True, "narava"),
@@ -20,8 +20,9 @@ CHAPTERS = [
     ("vreme", "Vreme", "Temperatura zraka in morja ter padavine po Sloveniji.", True, "narava"),
     ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True, "cas"),
     ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True, "cas"),
+    ("horoskop", "Horoskop", "Zakaj znamenja ne ustrezajo več ozvezdjem in kaj je Kačenosec.", True, "cas"),
 ]
-PLANNED = {"cas": [("Horoskop", "Zakaj znamenja ne ustrezajo več ozvezdjem.")]}
+PLANNED = {}
 LEDE = {
     "luna": "Kako se Luna spreminja skozi mesec, kdaj vzide in kje jo iskati na nebu.",
     "sonce": "Sonce vsak dan opiše lok čez nebo. Skozi leto se ta lok premika in z njim dolžina dneva.",
@@ -30,6 +31,7 @@ LEDE = {
     "mrki": "Mrk nastane, ko se Sonce, Zemlja in Luna postavijo v ravno črto.",
     "plima": "Plimovanje poganjata Luna in Sonce. Na naši obali je morje ob plimi do enega metra višje kot ob oseki.",
     "vreme": "Kako se temperatura in padavine spreminjajo skozi leto, od Bovca do Murske Sobote.",
+    "horoskop": "Horoskop izvira iz opazovanja neba, a se z njim že dolgo ne ujema več.",
     "prazniki": "Koliko prostih dni nas čaka letos in v prihodnjih letih ter kje se splača vzeti dan dopusta.",
     "koledar": "Koledar je poskus, da bi dneve, mesece in leta spravili v red, čeprav se ne izidejo.",
 }
