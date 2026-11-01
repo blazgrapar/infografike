@@ -1,0 +1,31 @@
+name: Pregled mape alpirocnik (samo branje)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pregled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Namesti lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+      - name: Preglej
+        env:
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        run: |
+          L() { lftp -c "set sftp:auto-confirm yes; set net:max-retries 4; set net:timeout 20; open --env-password -u \"$FTP_USERNAME\" sftp://$FTP_SERVER; $1" 2>&1 | sed -E 's#//[^/@ ]+@#//***@#g; s#gh[pousr]_[A-Za-z0-9]{20,}#***#g; s#github_pat_[A-Za-z0-9_]{20,}#***#g'; }
+          B=pikapoka.com/www/alpirocnik
+          echo '=== vsebina'; L "ls -l $B/"
+          echo '=== user'; L "ls -l $B/user/"
+          echo '=== pages'; L "ls -l $B/user/pages/"
+          echo '=== git v mapi'; L "ls -la $B/.git/" | head -5
+          echo '=== git v pages'; L "ls -la $B/user/pages/.git/" | head -5
+          echo '=== git remote (pages)'; L "cat $B/user/pages/.git/config" | grep -iE 'url|branch' || true
+          echo '=== git remote (koren)'; L "cat $B/.git/config" | grep -iE 'url|branch' || true
+          echo '=== git sync nastavitev'; L "cat $B/user/config/plugins/git-sync.yaml" | grep -iE 'repository|branch|enabled|folders|user' || true
+          echo '=== sistem'; L "cat $B/system/defines.php" | grep -i "GRAV_VERSION" || true
+          echo '=== zadnje spremembe v pages'; L "cls -lt --sort=date $B/user/pages/" | head -8
+          echo '=== velikost'; L "du -s -h $B"
+          echo '=== drugje: alpirocnik.si ali druge mape s tem imenom v domači mapi'; L "cls -1d */*alpir*" || true
