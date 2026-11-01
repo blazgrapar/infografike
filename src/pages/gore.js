@@ -23,7 +23,7 @@ function hbars(items, { X0 = 118, X1 = 300, rowH = 26, max, unit = "", hl = "Slo
 
 // ---------- Gore in gozdovi ----------
 function drawElev() {
-  const items = [["Butan", 3280], ["Nepal", 3265], ["Tadžikistan", 3186], ["Kitajska", 1840], ["Švica", 1350], ["Črna gora", 1086],
+  const items = [["Butan", 3280], ["Nepal", 3265], ["Tadžikistan", 3186], ["Kirgizija", 2988], ["Kitajska", 1840], ["Švica", 1350], ["Črna gora", 1086],
     ["Avstrija", 910], ["Španija", 660], ["Italija", 538], ["Slovenija", 492], ["Hrvaška", 331], ["Madžarska", 143], ["Nizozemska", 30], ["Maldivi", 1.5]];
   const r = hbars(items, { unit: " m", X0: 92, rowH: 20 });
   $("gElev").innerHTML = r.g;
