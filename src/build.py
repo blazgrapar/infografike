@@ -5,18 +5,23 @@ SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(SRC, "..", "site")
 ART = os.path.join(SRC, "..", "artifact")
 
-BOOK = "Pojavi v naravi"
-CHAPTERS = [
-    ("luna", "Luna", "Mene, vzhod in zahod ter smer, v kateri Luna vzide.", True),
-    ("sonce", "Sonce", "Pot Sonca po nebu in dolžina dneva skozi leto.", True),
-    ("letni-casi", "Letni časi", "Zakaj je poleti toplo in zakaj je najtopleje šele julija.", False),
-    ("somrak", "Somrak", "Civilni, navtični in astronomski somrak ter kdaj se zares stemni.", True),
-    ("mrki", "Mrki", "Kako nastaneta Sončev in Lunin mrk in zakaj nista vsak mesec.", True),
-    ("plima", "Plima in oseka", "Zakaj morje dvakrat na dan naraste in kdaj najbolj.", True),
-    ("vreme", "Vreme", "Temperatura zraka in morja ter padavine po Sloveniji.", False),
-    ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True),
-    ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True),
+SITE = "Infografike"
+GROUPS = [
+    ("narava", "Pojavi v naravi", "Luna, Sonce, letni časi, mrki, plimovanje in vreme s številkami za Slovenijo."),
+    ("cas", "Čas in koledar", "Kako merimo čas: koledar, prazniki in prosti dnevi."),
 ]
+CHAPTERS = [
+    ("luna", "Luna", "Mene, vzhod in zahod ter smer, v kateri Luna vzide.", True, "narava"),
+    ("sonce", "Sonce", "Pot Sonca po nebu in dolžina dneva skozi leto.", True, "narava"),
+    ("letni-casi", "Letni časi", "Zakaj je poleti toplo in zakaj je najtopleje šele julija.", False, "narava"),
+    ("somrak", "Somrak", "Civilni, navtični in astronomski somrak ter kdaj se zares stemni.", True, "narava"),
+    ("mrki", "Mrki", "Kako nastaneta Sončev in Lunin mrk in zakaj nista vsak mesec.", True, "narava"),
+    ("plima", "Plima in oseka", "Zakaj morje dvakrat na dan naraste in kdaj najbolj.", True, "narava"),
+    ("vreme", "Vreme", "Temperatura zraka in morja ter padavine po Sloveniji.", True, "narava"),
+    ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True, "cas"),
+    ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True, "cas"),
+]
+PLANNED = {"cas": [("Horoskop", "Zakaj znamenja ne ustrezajo več ozvezdjem.")]}
 LEDE = {
     "luna": "Kako se Luna spreminja skozi mesec, kdaj vzide in kje jo iskati na nebu.",
     "sonce": "Sonce vsak dan opiše lok čez nebo. Skozi leto se ta lok premika in z njim dolžina dneva.",
@@ -48,21 +53,24 @@ def head(title, full):
 
 
 def chapter_page(i):
-    slug, name, desc, inter = CHAPTERS[i]
+    slug, name, desc, inter, grp = CHAPTERS[i]
+    gname = dict((g[0], g[1]) for g in GROUPS)[grp]
+    same = [c for c in CHAPTERS if c[4] == grp]
+    j = same.index(CHAPTERS[i])
     body = read(f"pages/{slug}.html")
-    prev = CHAPTERS[i - 1] if i > 0 else None
-    nxt = CHAPTERS[i + 1] if i < len(CHAPTERS) - 1 else None
+    prev = same[j - 1] if j > 0 else None
+    nxt = same[j + 1] if j < len(same) - 1 else None
     pager = '<nav class="pager" aria-label="Poglavja">'
     if prev:
         pager += f'<a href="{prev[0]}.html"><span class="dir">← Prejšnje</span><span class="t">{prev[1]}</span></a>'
     if nxt:
         pager += f'<a class="next" href="{nxt[0]}.html"><span class="dir">Naslednje →</span><span class="t">{nxt[1]}</span></a>'
     pager += "</nav>"
-    html = head(f"{name} · {BOOK}", True)
+    html = head(f"{name} · {gname}", True)
     html += f'''<div class="wrap">
   <header class="pagehead">
-    <a class="back" href="index.html">← {BOOK}</a>
-    <div class="eyebrow">Poglavje {i + 1}</div>
+    <a class="back" href="index.html">← {SITE}</a>
+    <div class="eyebrow">{gname} · poglavje {j + 1}</div>
     <h1>{name}</h1>
     <p class="muted">{LEDE[slug]}</p>
   </header>
@@ -81,14 +89,22 @@ def chapter_page(i):
 
 
 def index_page(full):
-    html = head(BOOK, full)
+    html = head(SITE, full)
     body = read("pages/index.html")
-    cards = ""
-    for i, (slug, name, desc, inter) in enumerate(CHAPTERS):
-        tag = '<span class="tag">interaktivno</span>' if inter else ""
-        cards += (f'<a class="card" href="{slug}.html"><svg viewBox="0 0 64 64" aria-hidden="true" data-icon="{slug}"></svg>'
-                  f'<span class="ct"><span class="n">Poglavje {i + 1}</span><h2>{name}{tag}</h2><p>{desc}</p></span></a>\n')
-    body = body.replace("%%CARDS%%", cards)
+    groups = ""
+    for gid, gname, gdesc in GROUPS:
+        cards = ""
+        same = [c for c in CHAPTERS if c[4] == gid]
+        for j, (slug, name, desc, inter, grp) in enumerate(same):
+            tag = '<span class="tag">interaktivno</span>' if inter else ""
+            cards += (f'<a class="card" href="{slug}.html"><svg viewBox="0 0 64 64" aria-hidden="true" data-icon="{slug}"></svg>'
+                      f'<span class="ct"><span class="n">Poglavje {j + 1}</span><h2>{name}{tag}</h2><p>{desc}</p></span></a>\n')
+        for name, desc in PLANNED.get(gid, []):
+            cards += (f'<div class="card soon"><svg viewBox="0 0 64 64" aria-hidden="true" data-icon="soon"></svg>'
+                      f'<span class="ct"><span class="n">V pripravi</span><h2>{name}</h2><p>{desc}</p></span></div>\n')
+        groups += (f'<section class="group" id="{gid}"><div class="grouphead"><h2>{gname}</h2><p class="muted">{gdesc}</p></div>'
+                   f'<nav class="cards" aria-label="{gname}">\n{cards}</nav></section>\n')
+    body = body.replace("%%CARDS%%", groups)
     html += body + '\n<script src="astro.js"></script>\n<script src="common.js"></script>\n<script src="index.js"></script>\n'
     if full:
         html += "</body>\n</html>\n"

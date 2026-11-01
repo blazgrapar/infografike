@@ -1,6 +1,6 @@
-# Pojavi v naravi
+# Infografike
 
-Knjižica z infografikami o naravnih pojavih, objavljena na pikapoka.com/infografike.
+Zbirka knjižic z infografikami (Pojavi v naravi; Čas in koledar), objavljena na pikapoka.com/infografike.
 
 - `src/pages/` – vsebina poglavij (`*.html`) in njihovi skripti (`*.js`)
 - `src/build.py` – sestavi spletne strani v mapo `site/`

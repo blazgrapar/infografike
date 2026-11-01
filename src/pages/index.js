@@ -18,6 +18,7 @@ function icon(slug) {
       for (let r = 0; r < 3; r++) for (let k = 0; k < 4; k++) c += `<rect x="${16 + k * 9}" y="${28 + r * 7.5}" width="6" height="5" rx="1" fill="${r === 2 && k === 1 ? sun : "#A9B1C4"}"/>`;
       return bg + c;
     }
+    case "soon": return bg + `<circle cx="32" cy="32" r="16" fill="none" stroke="#A9B1C4" stroke-width="2" stroke-dasharray="3 4"/><circle cx="24" cy="26" r="1.6" fill="#F2B33D"/><circle cx="36" cy="22" r="1.6" fill="#F2B33D"/><circle cx="40" cy="36" r="1.6" fill="#F2B33D"/><circle cx="28" cy="40" r="1.6" fill="#F2B33D"/><path d="M24,26 L36,22 L40,36 L28,40" fill="none" stroke="#F2B33D" stroke-opacity="0.6"/>`;
     case "prazniki": {
       let c = `<rect x="12" y="14" width="40" height="38" rx="5" fill="#E9ECF3"/><rect x="12" y="14" width="40" height="10" rx="5" fill="#2A9D8F"/><rect x="12" y="20" width="40" height="4" fill="#2A9D8F"/>`;
       for (let r = 0; r < 3; r++) for (let k = 0; k < 5; k++) c += `<rect x="${15 + k * 7.4}" y="${28 + r * 7.5}" width="5" height="5" rx="1" fill="${k >= 3 ? "#E07A5F" : (r === 1 && k === 1 ? "#F2B33D" : "#A9B1C4")}"/>`;
