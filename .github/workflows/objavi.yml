@@ -1,0 +1,34 @@
+name: Objavi na pikapoka.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: objava
+  cancel-in-progress: false
+
+jobs:
+  objavi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sestavi strani
+        run: python3 src/build.py
+
+      - name: Namesti lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Naloži prek SFTP
+        env:
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+        run: |
+          lftp -c "set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 20; \
+            open --env-password -u \"$FTP_USERNAME\" sftp://$FTP_SERVER; \
+            mkdir -p -f \"$FTP_DIR\"; \
+            mirror -R --delete --verbose site/ \"$FTP_DIR\""

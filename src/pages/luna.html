@@ -1,0 +1,74 @@
+<section class="stack">
+      <div class="section-num">1.1</div>
+      <h3>Lunine mene</h3>
+      <p>Luna ne sveti sama. Vedno je osvetljena polovica, ki gleda proti Soncu. Spreminja se le, kolikšen del te polovice vidimo z Zemlje.</p>
+
+      <figure class="night" style="margin:0">
+        <svg id="orbit" viewBox="-178 -172 372 344" role="img" aria-label="Luna na tirnici okoli Zemlje in kako jo vidimo"></svg>
+        <figcaption class="cap">Pogled s severa. Notranji krog: Luna na tirnici. Zunanji krog: kako jo vidimo z Zemlje.</figcaption>
+      </figure>
+
+      <ul class="phases" id="phaseList"></ul>
+      <p class="note">Časi vzhoda in zahoda so približni, v zimskem času. Poleti jim prištej eno uro.</p>
+
+      <div class="tip">
+        <b>Raste ali pojema?</b>
+        <span>Pri nas je rastoča Luna osvetljena na desni, pojemajoča pa na levi.</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="big">29,5<small>dni</small></div><div class="lbl">od mlaja do mlaja</div></div>
+        <div class="stat"><div class="big">~50<small>min</small></div><div class="lbl">kasneje vzhaja vsak dan</div></div>
+        <div class="stat"><div class="big">1<small>stran</small></div><div class="lbl">nam Luna vedno kaže isto</div></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">1.2</div>
+      <h3>Kdaj in kje vzide</h3>
+      <p>Sonce v pol leta potuje od severovzhoda do jugovzhoda. Luna isto pot naredi v dveh tednih, zato se njena smer vzhoda iz dneva v dan opazno spreminja. Ko vzhaja na severovzhodu, je na nebu visoko in dolgo, tudi 15 ur. Ko vzhaja na jugovzhodu, ostane nizko in zaide že po devetih urah.</p>
+      <p>Ščip je vedno nasproti Sonca. Zato je pozimi visoko in vzhaja na severovzhodu, poleti pa ostane nizko na jugu.</p>
+
+      <div class="controls">
+        <button id="mPrev" type="button" aria-label="Prejšnji dan">◀</button>
+        <input id="mDay" type="date" aria-label="Dan">
+        <button id="mNext" type="button" aria-label="Naslednji dan">▶</button>
+        <button id="mToday" type="button" class="wide">Danes</button>
+      </div>
+
+      <div class="night" aria-live="polite">
+        <div class="today-card">
+          <svg id="bigmoon" viewBox="-104 -104 208 208" role="img" aria-label="Oblika Lune"></svg>
+          <div>
+            <div class="phase-name" id="phaseName">–</div>
+            <div class="phase-sub" id="phaseSub">–</div>
+          </div>
+        </div>
+        <div class="times">
+          <div class="trow"><span class="tlabel">Vzhod</span><span class="tval" id="riseT">–</span><span class="tdir" id="riseD"></span></div>
+          <div class="trow"><span class="tlabel">Najvišje</span><span class="tval" id="transT">–</span><span class="tdir" id="transD"></span></div>
+          <div class="trow"><span class="tlabel">Zahod</span><span class="tval" id="setT">–</span><span class="tdir" id="setD"></span></div>
+        </div>
+      </div>
+
+      <div class="panel compass">
+        <h3>Smer na obzorju</h3>
+        <svg id="compass" viewBox="-150 -150 300 300" role="img" aria-label="Smer vzhoda in zahoda Lune in Sonca"></svg>
+        <div class="legend">
+          <span style="--c: var(--moon-dark)">Luna</span>
+          <span style="--c: var(--sun)">Sonce</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Naslednjih 7 dni</h3>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th></th><th>Dan</th><th>Vzhod</th><th>Zahod</th><th>Osv.</th></tr></thead>
+            <tbody id="week"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="note">Izračun velja za Ljubljano; drugod po Sloveniji se časi razlikujejo za nekaj minut. Natančnost je približno ±2 minuti, časi so v uradnem času.</p>
+    </section>

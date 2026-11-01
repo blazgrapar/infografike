@@ -1,0 +1,41 @@
+    <section class="stack">
+      <div class="section-num">7.1</div>
+      <h3>Temperatura skozi leto</h3>
+      <p>Povsod po Sloveniji je najhladnejši januar in najtoplejši julij. Razlika med krajema je največja pozimi: v Portorožu je januar za pet stopinj toplejši kot v Murski Soboti, julij pa le za dve.</p>
+      <div class="panel">
+        <div class="chips" id="tChips"></div>
+        <svg id="tChart" class="chart" viewBox="0 0 360 230" role="img" aria-label="Povprečna mesečna temperatura zraka za štiri kraje"></svg>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="big">−1,1°</div><div class="lbl">januar v Murski Soboti</div></div>
+        <div class="stat"><div class="big">4,3°</div><div class="lbl">januar v Portorožu</div></div>
+        <div class="stat"><div class="big">22,9°</div><div class="lbl">julij v Portorožu</div></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">7.2</div>
+      <h3>Temperatura morja</h3>
+      <p>Morje se segreva in ohlaja počasneje od zraka. Najtoplejše je avgusta, ko ima okoli 24 °C, najhladnejše pa februarja z okoli 8 °C. Pozimi je morje za štiri stopinje toplejše od povprečne temperature zraka na obali in obalo greje. Spomladi se zrak segreje hitreje in maja morje dohiti.</p>
+      <div class="panel">
+        <svg id="seaChart" class="chart" viewBox="0 0 360 230" role="img" aria-label="Temperatura morja v Piranu in zraka v Portorožu"></svg>
+        <div class="legend">
+          <span style="--c: var(--sea)">morje, Piran</span>
+          <span style="--c: var(--temp)">zrak, Portorož</span>
+        </div>
+      </div>
+      <p class="note">Morje: Piran, povprečje 1980–1990, merjeno 30 cm pod gladino. Novejša leta so toplejša.</p>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">7.3</div>
+      <h3>Padavine</h3>
+      <p>Padavine se po Sloveniji zelo razlikujejo. Vlažni zrak z Jadrana se dvigne ob Julijskih Alpah in tam izgubi največ vode. V Bovcu pade v letu več kot trikrat toliko dežja kot v Murski Soboti.</p>
+      <p>Razlikuje se tudi razpored. Na zahodu je največ dežja jeseni, na vzhodu pa poleti, ko so pogoste nevihte.</p>
+      <div class="panel" id="rainPanel"></div>
+      <p class="note">Vsi kraji so narisani v istem merilu, do 350 mm na mesec.</p>
+    </section>
+
+    <div class="sources">
+      <span>Viri: ARSO, podnebna povprečja 1981–2010 (Ljubljana Bežigrad, Bovec, Murska Sobota, Letališče Portorož); temperatura morja: Geografski vestnik.</span>
+    </div>

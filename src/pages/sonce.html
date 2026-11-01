@@ -1,0 +1,42 @@
+<section class="stack">
+      <div class="section-num">2.1</div>
+      <h3>Pot Sonca po nebu</h3>
+      <p>Sonce vzhaja točno na vzhodu le ob enakonočju, okoli 20. marca in 23. septembra. Poleti vzide na severovzhodu, opoldne se dvigne visoko in zaide na severozahodu. Pozimi vzide na jugovzhodu, ostane nizko in zaide na jugozahodu.</p>
+
+      <div class="panel sky">
+        <label class="slider" for="sunDay">
+          <span>Dan v letu</span>
+          <b id="sunDayLbl">–</b>
+        </label>
+        <input id="sunDay" type="range" min="0" max="364" step="1" value="0">
+        <svg id="sunPath" viewBox="0 0 360 230" role="img" aria-label="Pot Sonca po nebu za izbrani dan"></svg>
+        <div class="readout">
+          <div><span class="tlabel2">Vzhod</span><b id="sRise">–</b><span id="sRiseD" class="muted"></span></div>
+          <div><span class="tlabel2">Opoldne</span><b id="sNoon">–</b><span id="sNoonD" class="muted"></span></div>
+          <div><span class="tlabel2">Zahod</span><b id="sSet">–</b><span id="sSetD" class="muted"></span></div>
+          <div><span class="tlabel2">Dan traja</span><b id="sLen">–</b><span class="muted">od vzhoda do zahoda</span></div>
+        </div>
+      </div>
+      <p class="note">Pogled proti jugu iz Ljubljane. Črtkane krivulje kažejo najdaljši dan, enakonočje in najkrajši dan.</p>
+
+      <div class="stats">
+        <div class="stat"><div class="big">67°</div><div class="lbl">opoldne 21. junija</div></div>
+        <div class="stat"><div class="big">21°</div><div class="lbl">opoldne 21. decembra</div></div>
+        <div class="stat"><div class="big">±35°</div><div class="lbl">od vzhoda se premika vzhod Sonca</div></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.2</div>
+      <h3>Dolžina dneva skozi leto</h3>
+      <p>Najdaljši dan v Ljubljani traja 15 ur in 46 minut, najkrajši le 8 ur in 38 minut. Razlika je več kot sedem ur. Spodnja lisa kaže, kdaj je Sonce nad obzorjem, po uri na uri. Skoka marca in oktobra sta premik na poletni čas in nazaj.</p>
+
+      <div class="panel">
+        <svg id="dayChart" viewBox="0 0 360 250" role="img" aria-label="Čas vzhoda in zahoda Sonca skozi leto"></svg>
+      </div>
+
+      <div class="tip">
+        <b>Najkrajši dan ni najtemnejši večer</b>
+        <span>Najzgodneje Sonce zaide okoli 10. decembra, ob 16.16. Najkasneje vzide šele v začetku januarja, ob 7.44. Najkrajši dan, 21. decembra, je vmes.</span>
+      </div>
+    </section>

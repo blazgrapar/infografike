@@ -1,0 +1,56 @@
+    <section class="stack">
+      <div class="section-num">4.1</div>
+      <h3>Trije somraki</h3>
+      <p>Ko Sonce zaide, še vedno osvetljuje zgornje plasti ozračja in te razpršijo svetlobo nazaj k nam. Glede na to, kako globoko je Sonce pod obzorjem, ločimo tri stopnje somraka.</p>
+
+      <figure class="night" style="margin:0">
+        <svg id="twBands" viewBox="0 0 360 300" role="img" aria-label="Stopnje somraka glede na globino Sonca pod obzorjem"></svg>
+      </figure>
+
+      <div class="tip">
+        <b>Za načrtovanje ture</b>
+        <span>Do konca civilnega somraka lahko hodiš brez čelke. Ko v gorah računaš, kdaj moraš biti na varnem, štej sončni zahod plus pol ure, ne več.</span>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">4.2</div>
+      <h3>Somrak na izbrani dan</h3>
+      <div class="controls">
+        <button id="tPrev" type="button" aria-label="Prejšnji dan">◀</button>
+        <input id="tDay" type="date" aria-label="Dan">
+        <button id="tNext" type="button" aria-label="Naslednji dan">▶</button>
+        <button id="tToday" type="button" class="wide">Danes</button>
+      </div>
+
+      <div class="panel">
+        <div id="twTimeline" class="timeline" role="img" aria-label="Dan, somrak in noč v 24 urah"></div>
+        <svg id="twAxis" class="chart" viewBox="0 0 360 18" aria-hidden="true"></svg>
+        <div class="keys">
+          <span style="--c: var(--tw-day)">dan</span>
+          <span style="--c: var(--tw-civil)">civilni</span>
+          <span style="--c: var(--tw-naut)">navtični</span>
+          <span style="--c: var(--tw-astro)">astronomski</span>
+          <span style="--c: var(--tw-night)">noč</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Zvečer</h3>
+        <div class="rowlist" id="twEvening"></div>
+      </div>
+      <div class="panel">
+        <h3>Zjutraj</h3>
+        <div class="rowlist" id="twMorning"></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">4.3</div>
+      <h3>Koliko časa je še svetlo po zahodu</h3>
+      <p>Pri nas traja civilni somrak od pol ure do skoraj 40 minut. Najkrajši je okoli enakonočij, ko Sonce zaide strmo. Poleti Sonce tone poševno, zato se večer vleče.</p>
+      <div class="panel">
+        <svg id="twYear" class="chart" viewBox="0 0 360 200" role="img" aria-label="Trajanje civilnega somraka skozi leto"></svg>
+      </div>
+      <p class="note">Izračuni za Ljubljano. Na odprtem obzorju, denimo na vrhu gore, je svetlo nekoliko dlje.</p>
+    </section>

@@ -1,0 +1,31 @@
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Knjižica v slikah</div>
+    <h1>Pojavi v naravi</h1>
+    <p class="muted">Luna, Sonce, letni časi, mrki, plimovanje, vreme in koledar. Vsako poglavje razloži en pojav s sliko in številkami za Slovenijo, mnoga pa pokažejo tudi, kako je danes.</p>
+  </header>
+
+  <section class="night" aria-label="Danes nad Ljubljano">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap">
+      <span class="tlabel">Danes nad Ljubljano</span>
+      <span class="phase-sub" id="iDate"></span>
+    </div>
+    <div class="today-card">
+      <svg id="iMoon" viewBox="-104 -104 208 208" role="img" aria-label="Današnja oblika Lune"></svg>
+      <div>
+        <div class="phase-name" id="iPhase">–</div>
+        <div class="phase-sub" id="iPhaseSub">–</div>
+      </div>
+    </div>
+    <div class="times">
+      <div class="trow"><span class="tlabel">Sonce</span><span class="tval" id="iSun">–</span><span class="tdir" id="iSunD"></span></div>
+      <div class="trow"><span class="tlabel">Luna</span><span class="tval" id="iMoonT">–</span><span class="tdir" id="iMoonD"></span></div>
+    </div>
+  </section>
+
+  <nav class="cards" aria-label="Poglavja">
+%%CARDS%%
+  </nav>
+
+  <p class="note">Izračuni veljajo za Ljubljano, drugod po Sloveniji se časi razlikujejo za nekaj minut. Podnebni podatki so povzeti po ARSO.</p>
+</div>

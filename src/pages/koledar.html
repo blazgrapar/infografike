@@ -1,0 +1,69 @@
+    <section class="stack">
+      <div class="section-num">8.1</div>
+      <h3>Zakaj imamo prestopna leta</h3>
+      <p>Zemlja obkroži Sonce v 365 dneh, 5 urah in 49 minutah. Koledarsko leto ima 365 dni, zato vsako leto zaostane za skoraj četrt dneva. Po štirih letih se nabere skoraj cel dan, ki ga dodamo kot 29. februar.</p>
+      <p>Ker je ostanek malo manjši od četrt dneva, bi bilo prestopnih let s tem preveč. Zato stoletja niso prestopna, razen če so deljiva s 400. Leto 2000 je bilo prestopno, 2100 ne bo.</p>
+      <div class="panel">
+        <svg id="leapChart" class="chart" viewBox="0 0 360 150" role="img" aria-label="Kako se ostanek četrt dneva nabira skozi štiri leta"></svg>
+      </div>
+      <div class="panel">
+        <h3>Je leto prestopno?</h3>
+        <div class="field">
+          <input id="leapYear" type="number" inputmode="numeric" min="1583" max="9999" aria-label="Leto">
+          <button id="leapGo" type="button">Preveri</button>
+        </div>
+        <div class="big-answer" id="leapAns">–</div>
+        <p class="muted" id="leapWhy"></p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="big">365,24</div><div class="lbl">dni traja leto letnih časov</div></div>
+        <div class="stat"><div class="big">97</div><div class="lbl">prestopnih let v 400 letih</div></div>
+        <div class="stat"><div class="big">3300</div><div class="lbl">let, preden se koledar zamakne za en dan</div></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">8.2</div>
+      <h3>Deset dni, ki jih ni bilo</h3>
+      <p>Starejši julijanski koledar je imel prestopno vsako četrto leto. Bil je za 11 minut na leto predolg, zato je vsakih 128 let zaostal za en dan. Do 16. stoletja se je pomladno enakonočje premaknilo z 21. na 11. marec.</p>
+      <p>Papež Gregor XIII. je leta 1582 koledar popravil. Po četrtku, 4. oktobru, je sledil petek, 15. oktober. Pravoslavne cerkve še danes praznike računajo po julijanskem koledarju, ki zdaj zaostaja za 13 dni. Zato je njihov božič 7. januarja.</p>
+      <div class="panel">
+        <svg id="gregChart" class="chart" viewBox="0 0 360 120" role="img" aria-label="Oktober 1582: po 4. oktobru je sledil 15. oktober"></svg>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">8.3</div>
+      <h3>Luna in koledar</h3>
+      <p>Beseda mesec izvira iz Lune. Dvanajst luninih mesecev pa traja le 354 dni, kar je 11 dni manj od leta. Koledarji so ta razkorak reševali različno.</p>
+      <div class="panel">
+        <div class="rowlist">
+          <div><span class="k">Gregorijanski</span><span class="v">sončni</span><span class="d">Meseci z Luno nimajo več zveze. Mlaj je lahko na katerikoli dan.</span></div>
+          <div><span class="k">Islamski</span><span class="v">lunin</span><span class="d">Leto ima 354 ali 355 dni. Ramadan je zato vsako leto 11 dni prej in v 33 letih obkroži vse letne čase.</span></div>
+          <div><span class="k">Judovski</span><span class="v">lunisolarni</span><span class="d">Meseci sledijo Luni, a v 19 letih vrinejo 7 dodatnih mesecev, da prazniki ostanejo v istem letnem času.</span></div>
+        </div>
+      </div>
+      <div class="tip">
+        <b>Metonov cikel</b>
+        <span>Po 19 letih se mene vrnejo na iste datume. 19 let ima skoraj natanko 235 luninih mesecev, razlika je le dve uri.</span>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">8.4</div>
+      <h3>Kdaj je velika noč</h3>
+      <p>Velika noč je prva nedelja po prvem pomladnem ščipu. Za pomlad se šteje 21. marec, za ščip pa cerkveni izračun, ki se od pravega ščipa lahko razlikuje za dan ali dva. Zato je velika noč lahko med 22. marcem in 25. aprilom.</p>
+      <div class="panel">
+        <div class="field">
+          <input id="eYear" type="number" inputmode="numeric" min="1583" max="4099" aria-label="Leto">
+          <button id="eGo" type="button">Izračunaj</button>
+        </div>
+        <div class="rowlist">
+          <div><span class="k">Katoliška in protestantska</span><span class="v" id="eWest">–</span></div>
+          <div><span class="k">Pravoslavna</span><span class="v" id="eEast">–</span></div>
+        </div>
+        <h3 style="margin-top:6px">Na kateri datum pade najpogosteje</h3>
+        <svg id="eHist" class="chart" viewBox="0 0 360 170" role="img" aria-label="Pogostost datumov velike noči v letih 1900–2099"></svg>
+      </div>
+      <p class="note">Graf šteje katoliške velikonočne datume v letih 1900–2099. Izbrani datum je obarvan.</p>
+    </section>
