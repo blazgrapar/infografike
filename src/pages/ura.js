@@ -66,7 +66,54 @@ function renderDst() {
     rows.map(([n, a, b, c]) => `<tr><td style="white-space:normal">${n}</td><td class="num">${clock(a)}</td><td class="num">${clock(b)}</td><td class="num">${clock(c)}</td></tr>`).join("") + `</tbody>`;
 }
 
+const WORLD = [
+  ["Ljubljana", "Europe/Ljubljana"], ["London", "Europe/London"], ["Reykjavik", "Atlantic/Reykjavik"],
+  ["New York", "America/New_York"], ["Los Angeles", "America/Los_Angeles"], ["Honolulu", "Pacific/Honolulu"],
+  ["Kiritimati, Kiribati", "Pacific/Kiritimati"], ["Delhi", "Asia/Kolkata"], ["Katmandu", "Asia/Kathmandu"],
+  ["Peking", "Asia/Shanghai"], ["Tokio", "Asia/Tokyo"], ["Sydney", "Australia/Sydney"],
+];
+function renderWorld() {
+  const now = new Date();
+  const ymdIn = tz => new Intl.DateTimeFormat("en-CA", { timeZone: tz, year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+  const here = ymdIn("Europe/Ljubljana");
+  const rows = WORLD.map(([n, tz]) => {
+    let t, off;
+    try {
+      t = new Intl.DateTimeFormat("sl-SI", { timeZone: tz, hour: "2-digit", minute: "2-digit", hour12: false }).format(now);
+      off = new Intl.DateTimeFormat("en-US", { timeZone: tz, timeZoneName: "shortOffset" }).formatToParts(now).find(p => p.type === "timeZoneName").value.replace("GMT", "UTC");
+    } catch (e) { return ""; }
+    const d = ymdIn(tz), day = d > here ? " · jutri" : d < here ? " · včeraj" : "";
+    return `<div style="${n === "Ljubljana" ? "font-weight:600" : ""}"><span class="k">${n}</span><span class="v">${t}</span><span class="d">${off === "UTC" ? "UTC+0" : off}${day}</span></div>`;
+  }).join("");
+  $("uWorld").innerHTML = rows;
+}
+
+const SKEW = [
+  ["Kašgar, Kitajska", 8, 75.99], ["Vigo, Španija", 1, -8.72], ["Reykjavik, Islandija", 0, -21.94],
+  ["Vladivostok, Rusija", 10, 131.89], ["Mumbaj, Indija", 5.5, 72.88], ["Pariz", 1, 2.35],
+  ["Ljubljana", 1, 14.51], ["Katmandu, Nepal", 5.75, 85.32], ["Varšava", 1, 21.01], ["Tbilisi, Gruzija", 4, 44.79],
+];
+function drawSkew() {
+  const data = SKEW.map(([n, o, lon]) => [n, Math.round(o * 60 - lon * 4)]).sort((a, b) => b[1] - a[1]);
+  const X0 = 150, X1 = 350, Y0 = 16, rowH = 27, MIN = -60, MAX = 220;
+  const cx = v => X0 + (v - MIN) / (MAX - MIN) * (X1 - X0);
+  let g = "";
+  [-60, 0, 60, 120, 180].forEach(v => {
+    g += `<line x1="${cx(v)}" x2="${cx(v)}" y1="${Y0 - 4}" y2="${Y0 + data.length * rowH}" stroke="var(--line)" ${v === 0 ? 'stroke-width="1.5" stroke="var(--muted)"' : ""}/>` +
+      `<text x="${cx(v)}" y="${Y0 + data.length * rowH + 14}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v / 60)} h</text>`;
+  });
+  data.forEach(([n, v], k) => {
+    const y = Y0 + k * rowH, x0 = cx(Math.min(0, v)), x1 = cx(Math.max(0, v));
+    g += `<text x="${X0 - 8}" y="${y + 15}" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="11.5" fill="var(--ink)" ${n === "Ljubljana" ? 'font-weight="700"' : ""}>${n}</text>`;
+    g += `<rect x="${x0}" y="${y + 5}" width="${Math.max(x1 - x0, 1.5)}" height="14" rx="2" fill="${n === "Ljubljana" ? "var(--sun)" : v > 45 ? "var(--temp)" : "var(--sea)"}"/>`;
+    g += `<text x="${v >= 0 ? x1 + 4 : x0 - 4}" y="${y + 16}" text-anchor="${v >= 0 ? "start" : "end"}" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v)}′</text>`;
+  });
+  $("uSkew").innerHTML = g;
+}
+
 dayPicker("u", renderNoon);
+renderWorld();
+drawSkew();
 drawNoonChart();
 renderTowns();
 renderDst();
