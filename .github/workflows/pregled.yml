@@ -17,4 +17,4 @@ jobs:
         run: |
           lftp -c "set sftp:auto-confirm yes; set net:max-retries 4; set net:timeout 20; \
             open --env-password -u \"$FTP_USERNAME\" sftp://$FTP_SERVER; \
-            pwd; echo '--- domov'; ls -la; echo '--- spletna mapa'; ls -la pikapoka.com/; echo '--- infografike'; ls -la pikapoka.com/infografike/"
+            rm -r pikapoka.com/infografike; echo '--- www'; ls -l pikapoka.com/www/; echo '--- www/infografike'; ls -l pikapoka.com/www/infografike/"
