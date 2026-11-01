@@ -17,5 +17,4 @@ jobs:
         run: |
           lftp -c "set sftp:auto-confirm yes; set net:max-retries 4; set net:timeout 20; \
             open --env-password -u \"$FTP_USERNAME\" sftp://$FTP_SERVER; \
-            mv pikapoka.com/www/git.token git.token.premaknjen; \
-            echo '--- www'; ls -l pikapoka.com/www/; echo '--- domov'; ls -l git.token.premaknjen"
+            echo '--- domov'; cls -1 git* ; echo '--- pikapoka.com'; cls -1 pikapoka.com/; echo '--- www'; cls -1a pikapoka.com/www/"
