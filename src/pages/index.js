@@ -44,6 +44,8 @@ function icon(slug) {
       return bg + c;
     }
     case "spanje": return bg + `<path d="M38,16 a17,17 0 1,0 12,28 a13,13 0 1,1 -12,-28 Z" fill="#F3EFE2"/><text x="44" y="26" font-family="Sora, sans-serif" font-size="9" font-weight="700" fill="#A9B1C4">z</text><text x="50" y="18" font-family="Sora, sans-serif" font-size="7" font-weight="700" fill="#A9B1C4">z</text>`;
+    case "zvok": return bg + `<path d="M14,26 h8 l10,-8 v28 l-10,-8 h-8 Z" fill="#E9ECF3"/><path d="M38,24 q5,8 0,16 M44,19 q9,13 0,26" fill="none" stroke="#2A9D8F" stroke-width="2.5" stroke-linecap="round"/>`;
+    case "svetloba": return bg + ["#E07A5F", "#F2B33D", "#E8D28A", "#2A9D8F", "#3F7FB8"].map((c, k) => `<path d="M${10 + k * 3},48 A${22 - k * 3},${22 - k * 3} 0 0,1 ${54 - k * 3},48" fill="none" stroke="${c}" stroke-width="3"/>`).join("");
     case "horoskop": {
       let c = `<circle cx="32" cy="32" r="21" fill="none" stroke="#A9B1C4" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="none" stroke="#2A9D8F" stroke-width="1.5"/>`;
       for (let k = 0; k < 12; k++) { const a = k * 30 * Math.PI / 180; c += `<line x1="${32 + 13 * Math.cos(a)}" y1="${32 + 13 * Math.sin(a)}" x2="${32 + 21 * Math.cos(a)}" y2="${32 + 21 * Math.sin(a)}" stroke="#A9B1C4"/>`; }

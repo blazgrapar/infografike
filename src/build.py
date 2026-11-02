@@ -11,6 +11,7 @@ GROUPS = [
     ("prebivalstvo", "Prebivalstvo", "Koliko nas je na svetu in v Sloveniji, kako smo rasli in kaj sledi."),
     ("drzave", "Države sveta", "Velikost, morje in obale, gore in gozdovi ter primerjava s Slovenijo."),
     ("telo", "Človeško telo", "Telo v številkah, tvoje življenje v številkah ter spanje in čutila."),
+    ("fizika", "Fizika okoli nas", "Zvok in svetloba v vsakdanjem življenju."),
     ("cas", "Čas in koledar", "Kako merimo čas: koledar, ura in časovni pasovi, prazniki ter horoskop."),
 ]
 CHAPTERS = [
@@ -33,6 +34,8 @@ CHAPTERS = [
     ("telo-stevilke", "Telo v številkah", "Voda, kri, srce, možgani, kosti in kako hitro rastejo lasje.", False, "telo"),
     ("zivljenje", "Tvoje življenje v številkah", "Koliko dni si živ, kolikokrat ti je udarilo srce in kdaj je tvoj 10.000. dan.", True, "telo"),
     ("spanje", "Spanje in čutila", "Koliko spanja potrebujemo, preizkus sluha in kako se spreminja vid.", True, "telo"),
+    ("zvok", "Zvok", "Hitrost zvoka, oddaljenost nevihte, decibeli in kaj slišijo živali.", True, "fizika"),
+    ("svetloba", "Svetloba", "Hitrost svetlobe, zakaj je nebo modro in kdaj je danes mogoča mavrica.", True, "fizika"),
     ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True, "cas"),
     ("ura", "Ura in časovni pasovi", "Kdaj je zares poldne, časovni pasovi in poletni čas.", True, "cas"),
     ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True, "cas"),
@@ -60,6 +63,8 @@ LEDE = {
     "telo-stevilke": "Človek v številkah, od kapljice krvi do zadnje kosti.",
     "zivljenje": "Vpiši rojstni datum in poglej svoje življenje v številkah.",
     "spanje": "Tretjino življenja prespimo, čutila pa se z leti spreminjajo.",
+    "zvok": "Zvok potuje počasi in ga lahko izmerimo z lastnimi ušesi in uro.",
+    "svetloba": "Svetloba je najhitrejša stvar v vesolju in barva neba je posledica tega, kako potuje.",
     "horoskop": "Horoskop izvira iz opazovanja neba, a se z njim že dolgo ne ujema več.",
     "prazniki": "Koliko prostih dni nas čaka letos in v prihodnjih letih ter kje se splača vzeti dan dopusta.",
     "koledar": "Koledar je poskus, da bi dneve, mesece in leta spravili v red, čeprav se ne izidejo.",
