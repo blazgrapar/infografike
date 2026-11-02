@@ -222,3 +222,66 @@ a { color: inherit; }
 .tile .tval { font-size: 1.6rem; }
 .toc a { background: var(--surface); color: var(--ink); border-color: var(--line); }
 .group { scroll-margin-top: 12px; }
+
+/* ================= odzivnost (mobile first) ================= */
+button, .toc a, .chips button, select, input[type="date"], input[type="number"] { min-height: 44px; }
+.chips button { min-height: 38px; }
+input[type="range"] { min-height: 32px; }
+
+/* telefon: osnova */
+body { padding-block: 16px 40px; }
+.wrap { gap: 32px; }
+.home .hero p { max-width: 60ch; }
+
+/* gumbi sklopov: ena vrstica, drsenje vstran, prilepljeni na vrh */
+.home .toc {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+  margin-inline: -16px; padding: 8px 16px; background: var(--bg);
+  -webkit-overflow-scrolling: touch;
+}
+.home .toc::-webkit-scrollbar { display: none; }
+.home .toc a { flex: 0 0 auto; display: inline-flex; align-items: center; }
+.group { scroll-margin-top: 64px; }
+
+/* Danes: na telefonu vrtiljak */
+.todaygrid {
+  grid-auto-flow: column; grid-auto-columns: 86%; overflow-x: auto;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+  margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px;
+}
+.todaygrid::-webkit-scrollbar { display: none; }
+.todaygrid .tile { scroll-snap-align: start; min-width: 0; }
+
+/* kartice poglavij nekoliko kompaktnejše */
+.card { padding: 12px; gap: 12px; grid-template-columns: 56px minmax(0, 1fr); }
+.card svg { width: 56px; height: 56px; }
+.card[style*="grid-template-columns:1fr"] { grid-template-columns: 1fr; }
+.grouphead h2 { font-size: 1.35rem; }
+
+@media (max-width: 380px) {
+  body { font-size: 16px; }
+  .stat .big { font-size: 1.4rem; }
+  .stats { gap: 8px; }
+  .pagehead h1 { font-size: 1.8rem; }
+}
+
+/* tablica */
+@media (min-width: 700px) {
+  body { padding-block: 32px 64px; }
+  .wrap.chapter { max-width: 680px; }
+  .wrap.home { max-width: 1040px; gap: 44px; }
+  .home .toc { margin-inline: 0; padding-inline: 0; flex-wrap: wrap; position: static; }
+  .todaygrid { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; margin-inline: 0; padding-inline: 0; }
+  .home .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home .card { align-items: start; }
+  .card { padding: 14px; grid-template-columns: 64px minmax(0, 1fr); }
+  .card svg { width: 64px; height: 64px; }
+  .chapter .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* namizni */
+@media (min-width: 1000px) {
+  .home .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .home .hero h1 { font-size: 3.2rem; }
+}

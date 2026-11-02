@@ -106,7 +106,7 @@ def chapter_page(i):
         pager += f'<a class="next" href="{nxt[0]}.html"><span class="dir">Naslednje →</span><span class="t">{nxt[1]}</span></a>'
     pager += "</nav>"
     html = head(f"{name} · {gname}", True)
-    html += f'''<div class="wrap">
+    html += f'''<div class="wrap chapter">
   <header class="pagehead">
     <a class="back" href="index.html">← {SITE}</a>
     <div class="eyebrow">{gname} · poglavje {j + 1}</div>
