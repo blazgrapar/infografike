@@ -1,0 +1,62 @@
+    <section class="stack">
+      <div class="section-num">2.1</div>
+      <h3>Od absolutne ničle do Sonca</h3>
+      <p>Temperatura pove, kako hitro se gibljejo delci snovi. Ko se gibanje skoraj povsem ustavi, dosežemo absolutno ničlo, −273,15 °C. Nižje ne gre. Navzgor meje ni.</p>
+      <div class="panel">
+        <svg id="tScale" class="chart" viewBox="0 0 360 400" role="img" aria-label="Lestvica znanih temperatur"></svg>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.2</div>
+      <h3>Celzij, Fahrenheit in Kelvin</h3>
+      <p>Celzijeva lestvica ima ničlo pri zmrzišču vode in 100 pri vrelišču. Fahrenheitova, ki jo uporabljajo v ZDA, ima te točki pri 32 in 212. Znanstveniki uporabljajo kelvine, ki začnejo pri absolutni ničli.</p>
+      <div class="panel">
+        <label class="slider" for="tC"><span>Temperatura</span><b id="tCLbl">20 °C</b></label>
+        <input id="tC" type="range" min="-50" max="120" step="1" value="20">
+        <div class="rowlist" id="tConv"></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.3</div>
+      <h3>Voda ne zavre vedno pri 100 °C</h3>
+      <p>Voda zavre, ko se tlak njene pare izenači z zračnim tlakom. Višje ko si, nižji je zračni tlak in prej voda zavre. Na Triglavu zavre pri okoli 90 °C, na Everestu pri manj kot 70 °C. Zato v gorah testenine in jajca potrebujejo dlje, v ekonom loncu pa se kuha hitreje, ker je tlak višji.</p>
+      <div class="panel">
+        <label class="slider" for="tH"><span>Nadmorska višina</span><b id="tHLbl">0 m</b></label>
+        <input id="tH" type="range" min="0" max="8849" step="1" value="0">
+        <div class="chips" id="tPlaces"></div>
+        <div class="big-answer" id="tBoil">–</div>
+        <p class="muted" id="tBoilTxt"></p>
+      </div>
+      <p class="note">Izračun za povprečen zračni tlak. Ob nizkem ali visokem vremenskem tlaku se vrelišče spremeni za kakšno stopinjo.</p>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.4</div>
+      <h3>Občutek mraza v vetru</h3>
+      <p>Veter odnaša topel zrak, ki se ustvari ob koži, zato nas pri isti temperaturi zebe bolj. Temu pravimo občutena temperatura.</p>
+      <div class="panel">
+        <label class="slider" for="wT"><span>Temperatura zraka</span><b id="wTLbl">0 °C</b></label>
+        <input id="wT" type="range" min="-30" max="10" step="1" value="0">
+        <label class="slider" for="wV"><span>Hitrost vetra</span><b id="wVLbl">30 km/h</b></label>
+        <input id="wV" type="range" min="5" max="100" step="1" value="30">
+        <div class="big-answer" id="wFeel">–</div>
+        <p class="muted" id="wTxt"></p>
+      </div>
+      <p class="note">Formula, ki jo uporabljajo kanadska in ameriška meteorološka služba. Velja za temperature do 10 °C in veter nad 5 km/h.</p>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.5</div>
+      <h3>Rekordi</h3>
+      <div class="panel">
+        <div class="rowlist">
+          <div><span class="k">Najvišja na Zemlji</span><span class="v">56,7 °C</span><span class="d">Dolina smrti, ZDA, 10. julij 1913. Nekateri strokovnjaki meritvi ne zaupajo.</span></div>
+          <div><span class="k">Najnižja na Zemlji</span><span class="v">−89,2 °C</span><span class="d">Postaja Vostok, Antarktika, 21. julij 1983.</span></div>
+          <div><span class="k">Najvišja v Sloveniji</span><span class="v">40,8 °C</span><span class="d">Cerklje ob Krki, 8. avgust 2013.</span></div>
+          <div><span class="k">Najnižja v Sloveniji</span><span class="v">−34,5 °C</span><span class="d">Babno Polje, 13. januar 1968.</span></div>
+        </div>
+      </div>
+      <p class="note">Uradni rekordi, kot jih vodita Svetovna meteorološka organizacija in ARSO.</p>
+    </section>

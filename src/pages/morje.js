@@ -54,6 +54,44 @@ function drawLong() {
   const items = [["Kanada", 202080], ["Norveška", 83281], ["Indonezija", 54716], ["Rusija", 37653], ["Filipini", 36289], ["Japonska", 29751]];
   $("mLong").innerHTML = hbars(items, { unit: " km", X0: 84 }).g;
 }
+function drawZones() {
+  const X0 = 40, X1 = 350, coast = 60;
+  let g = `<rect x="0" y="40" width="${coast}" height="120" fill="var(--sun)" fill-opacity="0.55"/>`;
+  g += `<text x="${coast / 2}" y="104" text-anchor="middle" font-family="Sora, sans-serif" font-size="11" font-weight="600" fill="var(--ink)">kopno</text>`;
+  const z = [[coast, 78, 0.85, "teritorialno", "12 milj"], [78, 300, 0.5, "izključna ekonomska cona", "200 milj"], [300, 360, 0.15, "odprto morje", ""]];
+  z.forEach(([a, b, o, n, d]) => {
+    g += `<rect x="${a}" y="40" width="${b - a}" height="120" fill="var(--sea)" fill-opacity="${o}"/>`;
+  });
+  g += `<text x="${coast + 9}" y="64" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink)" transform="rotate(-90 ${coast + 9} 64)" text-anchor="end">teritorialno</text>`;
+  g += `<text x="190" y="104" text-anchor="middle" font-family="Sora, sans-serif" font-size="11" font-weight="600" fill="var(--ink)">izključna ekonomska cona</text>`;
+  g += `<text x="330" y="104" text-anchor="middle" font-family="Sora, sans-serif" font-size="10" fill="var(--muted)">odprto</text><text x="330" y="118" text-anchor="middle" font-family="Sora, sans-serif" font-size="10" fill="var(--muted)">morje</text>`;
+  [[coast, "0"], [78, "12"], [300, "200 milj"]].forEach(([x, l]) => {
+    g += `<line x1="${x}" x2="${x}" y1="34" y2="166" stroke="var(--ink)" stroke-width="1"/><text x="${x}" y="182" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">${l}</text>`;
+  });
+  g += `<text x="${coast}" y="24" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">obala</text>`;
+  g += `<text x="350" y="196" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--muted)">razdalje niso v merilu</text>`;
+  $("mZones").innerHTML = g;
+}
+function drawEez() {
+  const items = [["Francija", 11.69], ["ZDA", 11.35], ["Avstralija", 8.51], ["Rusija", 7.57], ["Združeno kraljestvo", 6.81], ["Indonezija", 6.16],
+    ["Kanada", 5.60], ["Japonska", 4.48], ["Nova Zelandija", 4.08], ["Čile", 3.68]];
+  $("mEez").innerHTML = hbars(items, { unit: " mio km²", X0: 120, dec: 2, rowH: 26 }).g;
+}
+function drawSlo() {
+  // kvadrati v istem merilu: Hrvaška kopno 56.594, morje 31.067; Slovenija kopno 20.273, morje 213
+  const k = 145 / Math.sqrt(56594), sq = a => Math.sqrt(a) * k;
+  const blk = (x, land, sea, name) => {
+    const L = sq(land), S = sq(sea), base = 180;
+    return `<rect x="${x}" y="${base - L}" width="${L}" height="${L}" fill="var(--sun)" fill-opacity="0.75"/>` +
+      `<rect x="${x + L + 6}" y="${base - S}" width="${Math.max(S, 2)}" height="${Math.max(S, 2)}" fill="var(--sea)"/>` +
+      `<text x="${x}" y="${base - L - 8}" font-family="Sora, sans-serif" font-size="12" font-weight="600" fill="var(--ink)">${name}</text>` +
+      `<text x="${x + L + 6}" y="${base - Math.max(S, 2) - 6}" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">${sea.toLocaleString("sl-SI")} km²</text>`;
+  };
+  $("mSlo").innerHTML = blk(8, 20273, 213, "Slovenija") + blk(118, 56594, 31067, "Hrvaška");
+}
 drawGrid();
 drawPara();
 drawLong();
+drawZones();
+drawEez();
+drawSlo();
