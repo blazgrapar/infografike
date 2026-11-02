@@ -1,0 +1,36 @@
+    <section class="stack">
+      <div class="section-num">2.1</div>
+      <h3>Koliko si že živ</h3>
+      <div class="panel">
+        <label class="slider" for="lDate"><span>Rojstni datum</span></label>
+        <input id="lDate" type="date" aria-label="Rojstni datum" style="font-family:var(--font-data);font-size:1rem;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);width:100%">
+      </div>
+      <div class="night" style="text-align:center">
+        <span class="tlabel">Živ si že</span>
+        <div class="tval" id="lDays" style="font-size:2.2rem">–</div>
+        <span class="phase-sub" id="lSecs">–</span>
+      </div>
+      <div class="panel">
+        <h3>V tem času</h3>
+        <div class="rowlist" id="lStats"></div>
+      </div>
+      <p class="note">Ocene uporabljajo povprečja: 75 utripov srca in 16 vdihov na minuto, 8 ur spanja na dan in 1 cm rasti las na mesec. Pri otrocih sta srčni utrip in dihanje hitrejša.</p>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.2</div>
+      <h3>Okrogli jubileji</h3>
+      <p>Rojstni dan je vsako leto, nekateri mejniki pa le enkrat v življenju.</p>
+      <div class="panel">
+        <div class="rowlist" id="lMiles"></div>
+      </div>
+    </section>
+
+    <section class="stack">
+      <div class="section-num">2.3</div>
+      <h3>Življenje v tednih</h3>
+      <p>Vsak kvadratek je en teden. Celotna mreža prikazuje 82 let, kar je približno pričakovana življenjska doba v Sloveniji. Obarvani kvadratki so tedni, ki so že za tabo.</p>
+      <div class="panel">
+        <svg id="lWeeks" class="chart" viewBox="0 0 360 520" role="img" aria-label="Življenje v tednih"></svg>
+      </div>
+    </section>

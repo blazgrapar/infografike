@@ -38,6 +38,12 @@ function icon(slug) {
     case "morje": return bg + `<path d="M8,40 l6,-6 l4,4 l6,-9 l5,5 l4,-7 l6,8 l5,-4 l5,6 l7,-5" fill="none" stroke="#2A9D8F" stroke-width="2.5" stroke-linejoin="round"/><path d="M8,48 L56,48" stroke="#6FA8DC" stroke-width="2" stroke-dasharray="3 3"/>`;
     case "gore": return bg + `<path d="M6,52 L22,26 L30,36 L40,18 L58,52 Z" fill="#A9B1C4"/><path d="M36,24 L40,18 L44,24 Z" fill="#E9ECF3"/><path d="M6,52 l5,-8 l5,8 M14,52 l5,-9 l5,9" fill="#2A9D8F"/>`;
     case "primerjaj": return bg + `<rect x="14" y="20" width="36" height="8" rx="2" fill="#2A9D8F"/><rect x="14" y="31" width="22" height="8" rx="2" fill="#F2B33D"/><rect x="14" y="42" width="30" height="4" rx="2" fill="#A9B1C4"/>`;
+    case "telo-stevilke": return bg + `<path d="M32,48 C14,36 12,22 22,18 C27,16 31,19 32,23 C33,19 37,16 42,18 C52,22 50,36 32,48 Z" fill="#E07A5F"/>`;
+    case "zivljenje": {
+      let c = ""; for (let k = 0; k < 48; k++) c += `<rect x="${12 + (k % 8) * 5.2}" y="${14 + Math.floor(k / 8) * 6}" width="4.2" height="4.6" fill="${k < 29 ? "#F2B33D" : "#56607A"}"/>`;
+      return bg + c;
+    }
+    case "spanje": return bg + `<path d="M38,16 a17,17 0 1,0 12,28 a13,13 0 1,1 -12,-28 Z" fill="#F3EFE2"/><text x="44" y="26" font-family="Sora, sans-serif" font-size="9" font-weight="700" fill="#A9B1C4">z</text><text x="50" y="18" font-family="Sora, sans-serif" font-size="7" font-weight="700" fill="#A9B1C4">z</text>`;
     case "horoskop": {
       let c = `<circle cx="32" cy="32" r="21" fill="none" stroke="#A9B1C4" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="none" stroke="#2A9D8F" stroke-width="1.5"/>`;
       for (let k = 0; k < 12; k++) { const a = k * 30 * Math.PI / 180; c += `<line x1="${32 + 13 * Math.cos(a)}" y1="${32 + 13 * Math.sin(a)}" x2="${32 + 21 * Math.cos(a)}" y2="${32 + 21 * Math.sin(a)}" stroke="#A9B1C4"/>`; }

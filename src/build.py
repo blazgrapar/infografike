@@ -10,6 +10,7 @@ GROUPS = [
     ("narava", "Pojavi v naravi", "Luna, Sonce, letni časi, nočno nebo, mrki, plimovanje in vreme s številkami za Slovenijo."),
     ("prebivalstvo", "Prebivalstvo", "Koliko nas je na svetu in v Sloveniji, kako smo rasli in kaj sledi."),
     ("drzave", "Države sveta", "Velikost, morje in obale, gore in gozdovi ter primerjava s Slovenijo."),
+    ("telo", "Človeško telo", "Telo v številkah, tvoje življenje v številkah ter spanje in čutila."),
     ("cas", "Čas in koledar", "Kako merimo čas: koledar, ura in časovni pasovi, prazniki ter horoskop."),
 ]
 CHAPTERS = [
@@ -29,6 +30,9 @@ CHAPTERS = [
     ("morje", "Morje in obale", "Paradoks obale, najdaljše obale, naših 46,6 km in države brez morja.", False, "drzave"),
     ("gore", "Gore in gozdovi", "Povprečna nadmorska višina in delež gozda po državah.", False, "drzave"),
     ("primerjaj", "Primerjaj s Slovenijo", "Izberi državo in jo primerjaj s Slovenijo.", True, "drzave"),
+    ("telo-stevilke", "Telo v številkah", "Voda, kri, srce, možgani, kosti in kako hitro rastejo lasje.", False, "telo"),
+    ("zivljenje", "Tvoje življenje v številkah", "Koliko dni si živ, kolikokrat ti je udarilo srce in kdaj je tvoj 10.000. dan.", True, "telo"),
+    ("spanje", "Spanje in čutila", "Koliko spanja potrebujemo, preizkus sluha in kako se spreminja vid.", True, "telo"),
     ("koledar", "Koledar", "Prestopna leta, Luna v koledarju in datum velike noči.", True, "cas"),
     ("ura", "Ura in časovni pasovi", "Kdaj je zares poldne, časovni pasovi in poletni čas.", True, "cas"),
     ("prazniki", "Prazniki in prosti dnevi", "Dela prosti dnevi po letih, mostovi in premik ure.", True, "cas"),
@@ -53,6 +57,9 @@ LEDE = {
     "morje": "Zemlja je modri planet, obale pa so daljše, kot se zdijo.",
     "gore": "Kako visoko ležijo države in koliko jih pokriva gozd. Slovenija je pri obojem nad povprečjem.",
     "primerjaj": "Velikost, obala, višina in gozd izbrane države ob Sloveniji.",
+    "telo-stevilke": "Človek v številkah, od kapljice krvi do zadnje kosti.",
+    "zivljenje": "Vpiši rojstni datum in poglej svoje življenje v številkah.",
+    "spanje": "Tretjino življenja prespimo, čutila pa se z leti spreminjajo.",
     "horoskop": "Horoskop izvira iz opazovanja neba, a se z njim že dolgo ne ujema več.",
     "prazniki": "Koliko prostih dni nas čaka letos in v prihodnjih letih ter kje se splača vzeti dan dopusta.",
     "koledar": "Koledar je poskus, da bi dneve, mesece in leta spravili v red, čeprav se ne izidejo.",
